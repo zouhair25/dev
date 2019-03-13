@@ -1,0 +1,116 @@
+page-autour-moi {
+ion-spinner * {
+      width: 28px;
+      height: 28px;
+	  stroke: #444;
+	  fill: #222;
+	  margin-left: 151px;
+      margin-top: 208px;
+    }
+  	.hist-content{
+		background-color: #eee !important;
+	}
+
+	.hist-row{
+		background-color: white !important;
+	    /*padding-top: 6px;*/
+	    border-radius: 5px 5px 5px 5px;
+	    webkit-border-radius:5px 5px 5px 5px;
+	    moz-border-radius:5px 5px 5px 5px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      margin-bottom: 12px;
+	}
+	.rs_comp{
+        font-weight: bold;
+	}
+	.information{
+	    padding-left: 9px;
+        padding-top: 9px;
+	}
+	.space{
+		background-color: #eee !important;
+		height:6px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		width: 100%;
+	}
+
+	.logo-ste{
+	    max-width: 87% !important;
+	    width: 80px;
+	    padding-left: 5px;
+			padding-top: 8px;
+	}
+
+
+	.rubrique{
+		color: black;
+		text-transform: initial;
+		padding-top: 10px;
+		font-size: 13px;
+	}
+
+	.adresse{
+         font-size: 12px;
+	}
+
+	.info{
+		width: 100%;
+	}
+    .distance{
+    color: #488aff
+    }
+
+b, strong {
+    font-weight: normal;
+    margin-bottom: 7px;
+}
+
+page-search-jaune .space {
+    background-color: #eee !important;
+    height: 10px;
+    padding-top: 0;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+page-search-jaune .rs_comp {
+    font-weight: bold;
+    font-size: 18px;
+    padding-bottom: 5px;
+}
+
+.col-inscription {
+  padding-left: 16px;
+  padding-right: 10px;
+  padding-top: 0;
+}
+
+.border-logo {
+  width: 100%;
+  border: 1px;
+  border-style: solid;
+  border-color: #898a8c;
+  margin-left: 5px;
+}
+.logo-not{
+  max-width: 87% !important;
+  width: 80px;
+  padding-left: 5px;
+  margin-top: 4px;
+}
+
+.col-logos {
+  margin-top: 8px;
+}
+
+.cercle-chiffres {
+  width: 28px;
+border-radius: 50%;
+height: 28px;
+border: 0;
+background-color: #ffef2b;
+text-align: center;
+}
+}

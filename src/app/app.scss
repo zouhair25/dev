@@ -1,0 +1,73 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+
+.header-ios .toolbar-ios:last-child .toolbar-background-ios {
+    border-width: 0;
+}
+
+.btn {
+  padding-left: 0px;
+  border: 0;
+}
+
+button.item-ios:not([detail-none]) .item-inner {
+  background-image: url();
+}
+
+[icon-left] ion-icon, [icon-start] ion-icon{
+  padding-left: 20px;
+  line-height: 53px!important;
+  padding-right: 0.8em;
+  font-size: 28px;
+}
+
+.toolbar-background-ios {
+    background: #ffdb2e;
+}
+
+.toolbar-background-md {
+    background: #ffdb2e;
+}
+
+.list-ios {
+    margin: 0px 0 32px;
+}
+
+.toolbar-ios {
+  height: 68px;
+}
+
+.toolbar-ios ion-title {
+  padding: 37px;
+}
+
+[icon-left] ion-icon, [icon-start] ion-icon {
+    padding-left: 10px;
+    line-height: 1.67;
+    padding-right: 10px;
+    font-size: 28px!important;
+    color: black;
+}
+
+.titre {
+  font-size: 27px;
+margin: 13px;
+color: black;
+font-family: lato;
+font-weight: bold;
+}

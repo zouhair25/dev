@@ -1,0 +1,20 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Pharmacie de garde</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-grid>
+		<ion-col col-12>
+			<ion-item *ngFor="let v of list">
+				<button ion-button full class="ville" 
+				(click)="onDisplayPharmacieGarde(v)">{{v.titre}}</button>
+			</ion-item>
+		</ion-col>
+	</ion-grid>
+</ion-content>

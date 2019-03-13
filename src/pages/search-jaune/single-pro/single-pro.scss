@@ -1,0 +1,176 @@
+page-single-pro,page-single-anv {
+   .my-nav{
+     list-style-type: disc;
+   }
+   #map {
+      width: 100%;
+      height: 30%;
+    }
+    .btns{
+      background-color:  #ffdd00;
+      padding-top: 12px;
+    }
+    .back{
+      background-color: transparent;
+    }
+    .icon-size{
+      font-size: 2.0em;
+      font-size: 26px;
+    }
+   .toolbar-title-md{
+      font-size:14px;
+   }
+   .adresse{
+   	font-size: 14px;
+   }
+   .rs_comp{
+   	font-weight: bold;
+   	font-size: 22px;
+   }
+
+   .rubrique{
+   		font-size: 14px;
+   		font-weight: 400;
+      line-height: 25px;
+   }
+   .telephone1 span, .email span, .site-web span, .fax span{
+   	color: #4a8bfc;
+   }
+
+   [col-12]{
+      padding: 1px;
+   }
+   /*img{
+      width: 73px !important;
+      float: left;
+      margin-right: 10px;
+      padding-top: 7px;
+   }*/
+
+   li{
+    list-style-type: none !important;
+   }
+
+
+   .telephone1, .telephone1 span, .fax, .fax span,.email, .email span,
+   .site-web, .site-web span a{
+      font-size: 14px;
+   }
+   .module{
+      text-align: justify;
+   }
+
+}
+
+.text {
+  padding: 18px;
+}
+
+.btns-icon {
+  text-align: center;
+}
+
+.img {
+  float: left;
+  margin-right: 22px;
+  border: 1px solid #898a8c;
+  margin-top: 6px;
+  width: 80px;
+  height: 80px;
+}
+
+page-single-pro .rs_comp {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.icon-rubrique {
+  display: inline-block;
+  font-size: 16px;
+  padding-right: 8px;
+}
+
+.rasion-sociale {
+  border: 1px;
+  width: 100%;
+  border-style: solid;
+  border-color: #898a8c;
+  margin-left: 5px;
+}
+
+.name-menu {
+  font-size: 14px;
+}
+
+.check-mark {
+  padding-right: 6px;
+}
+
+.p-s {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.pres-serv {
+  padding-top: 10px;
+}
+
+.grid {
+  padding: 0;
+}
+
+.item-md.item-block .item-inner {
+    padding-right: 0;
+    border-bottom: 0;
+}
+
+.activite {
+  background-color: #eaeff1;
+  margin-top: 20px;
+  margin-bottom: 14px;
+}
+
+.Prestations{
+  background-color: #eaeff1;
+  margin-top: 20px;
+  margin-bottom: 4px;
+}
+
+.activite p, .Prestations p {
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: #617178;
+  font-size: 19px;
+  margin: 0;
+}
+
+page-single-pro [col-12] {
+  padding: 0;
+}
+
+.label-md {
+    margin: 0;
+}
+
+.item-md {
+  padding-right: 16px;
+}
+.ligne {
+  margin-top: 16px;
+}
+
+.rasion-sociale {
+  padding-top: 22px;
+  border: 0;
+  margin-left: 0;
+}
+
+
+.icon-coordonees {
+  padding-right: 12px;
+  font-size: 18px;
+  color: #83939a;
+}
+.Prestations-liste {
+  padding-top: 12px;
+}

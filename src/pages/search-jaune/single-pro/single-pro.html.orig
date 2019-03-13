@@ -1,0 +1,156 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{rs_comp1}} {{rs_comp2}}<br> {{ville0}}{{ville1}} {{ville2}} {{ville3}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+  <div #map id="map" [@openClose]="isOpen ? 'open' : 'closed'">
+
+  </div>
+ <ion-grid class="grid">
+  <ion-row class="btns">
+
+    <ion-col col-3 class="btns-icon">
+      <button  color="light" class="back" align="center">
+        <ion-icon name="call" class="icon-size">
+        </ion-icon><br>
+        <p class="name-menu">Appeler</p>
+      </button>
+    </ion-col>
+
+
+    <ion-col col-3 class="btns-icon">
+      <button  color="light" class="back"  (click)="navigateLocation()">
+       <ion-icon name="walk" class="icon-size"></ion-icon><br>
+       <p class="name-menu">Y aller</p>
+      </button>
+
+    </ion-col>
+
+    <ion-col col-3 class="btns-icon">
+       <button  color="light" class="back">
+         <ion-icon name="mail" class="icon-size"></ion-icon><br>
+         <p class="name-menu">E-mail</p>
+       </button>
+    </ion-col>
+
+    <ion-col col-3 class="btns-icon">
+       <button  (click)="toggle()" color="light" class="back">
+          <div *ngIf="isOpen">
+            <ion-icon name="arrow-down" class="icon-size"></ion-icon><br>
+            <p class="name-menu">Agrandir</p>
+          </div>
+          <div *ngIf="!isOpen">
+            <ion-icon name="arrow-up" class="icon-size"><p class="name-menu">Réduire</p></ion-icon>
+          </div>
+       </button>
+    </ion-col>
+
+  </ion-row>
+
+  <ion-row>
+      <ion-col class="text"><span class="rs_comp">{{rs_comp1}}{{rs_comp2}}</span>
+         <!-- logo et description -->
+         <hr>
+        <ion-item text-wrap *ngIf="logo1 || module1 || module2 || module3">
+              <span class="logo" *ngIf="logo1"><img src="{{logo1}}" class="img"></span>
+              <span class="logo" *ngIf="logo2"><img src="{{logo2}}" class="img"></span>
+      
+
+            <div class="module">
+              {{module1}}{{module2}}{{module3}}
+            </div>
+
+        </ion-item>
+          <!-- les rubriques -->
+            <b class="p-s">Activités:</b><br>
+             <span class="rubrique" text-wrap>
+               <ion-icon *ngIf="rubrique1" ios="ios-arrow-dropright" md="md-arrow-dropright" class="icon-rubrique"></ion-icon><span *ngIf="rubrique1">{{rubrique1}}<br></span>
+               <ion-icon *ngIf="rubrique2" ios="ios-arrow-dropright" md="md-arrow-dropright" class="icon-rubrique"></ion-icon><span *ngIf="rubrique2">{{rubrique2}}<br></span>
+               <ion-icon *ngIf="rubrique3" ios="ios-arrow-dropright" md="md-arrow-dropright" class="icon-rubrique"></ion-icon><span *ngIf="rubrique3">{{rubrique3}}<br></span>
+               <ion-icon *ngIf="rubrique4" ios="ios-arrow-dropright" md="md-arrow-dropright" class="icon-rubrique"></ion-icon><span *ngIf="rubrique4">{{rubrique4}}<br></span>
+
+             </span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-12>
+        <ion-list>
+          <hr>
+          <ion-item *ngIf='adresse1 || adresse2 || adresse0'>
+            <span class="adresse" text-wrap>{{adresse1}}{{adresse2}}{{adresse0}}</span>
+          </ion-item>
+          <ion-item *ngIf="telephone0">
+            <span class="telephone1"><b>Tél : </b><span>{{telephone0}}</span>
+           </span>
+          </ion-item>
+          <ion-item *ngIf="telephone1">
+            <span class="telephone1"><b>Tél : </b><span>{{telephone1}}</span>
+           </span>
+          </ion-item>
+          <ion-item *ngIf="telephone2">
+            <span class="telephone1"><b>Tél : </b><span>{{telephone2}}</span>
+           </span>
+          </ion-item>
+          <ion-item *ngIf="fax1 || fax2 || fax3">
+            <span *ngIf="fax1">
+               <span class="fax"><b>Fax : </b><span>{{fax1}}</span></span>
+            </span>
+            <span *ngIf="fax2">
+               <span class="fax"><b>Fax : </b><span>{{fax2}}</span></span>
+            </span>
+            <span *ngIf="fax3">
+               <span class="fax"><b>Fax : </b><span>{{fax3}}</span></span>
+            </span>
+          </ion-item>
+          <!--<ion-item *ngIf="email1">
+            <span class="email"><b>Email : </b><span>{{email1}}</span></span>
+          </ion-item>
+          <ion-item *ngIf="email2">
+            <span class="email"><b>Email : </b><span>{{email2}}</span></span>
+          </ion-item>-->
+
+          <ion-item *ngIf="webinfo_link1">
+            <span class="site-web">
+              <span><a href="{{webinfo_link1}}">{{webinfo_link1}}</a></span>
+            </span>
+          </ion-item>
+
+          <ion-item *ngIf="webinfo_link2">
+
+              <span *ngIf="webinfo_link2.length<35" text-wrap>
+              <a target="_blank" href="{{webinfo_link2}}">{{webinfo_link2}}</a>
+              </span>
+              <span *ngIf="webinfo_link2.length>35" text-wrap>
+              <a target="_blank" href="{{webinfo_link2}}">{{webinfo_link2}}</a>
+              </span>
+          </ion-item>
+<<<<<<< HEAD
+
+
+=======
+
+
+>>>>>>> 2af19970e4a26449cf90f76aab8da75e7a990085
+          <ion-item text-wrap *ngIf="listPrestations?.length>0">
+               <b class="p-s">Prestations et produits :</b><br>
+            <ion-row class="pres-serv">
+            <ion-col  col-12 *ngFor="let p of listPrestations">
+              <li ><ion-icon name="checkmark" class="check-mark"></ion-icon>{{p.title}}</li>
+            </ion-col>
+          </ion-row>
+
+          </ion-item>
+        </ion-list>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

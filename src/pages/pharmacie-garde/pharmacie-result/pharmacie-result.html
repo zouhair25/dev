@@ -1,0 +1,68 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Liste des pharmacie garde</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="hist-content">
+
+
+  <ion-grid *ngIf="count>0">
+    <b> {{count}} Résultats</b>
+    <div *ngFor='let l of result;let i=index  '>
+     
+        <ion-item class="quartier" *ngIf="l.key!='ZZZZZ'">
+          <div class="p-s" >{{l.key}}
+          </div>
+          
+        </ion-item>
+
+     <ion-row  class="hist-row" *ngFor="let k of l.value;let j=index">
+
+
+      <ion-col col-10 class="information" (click)="onDisplayPro(k.d,currentLat,currentLng)">
+        <div class="rs_comp" >
+          <input type="text" name="" value="{{j+1}}" readonly="readonly" class="cercle-chiffres">
+          &nbsp;{{k.d[2].rs_comp}} {{k.d[1].rs_comp}}</div>
+
+        <div >
+          <span class="adresse">{{k.d[2].adresse}}{{k.d[3].adresse}}{{k.d[4].adresse}}</span> &nbsp;&nbsp; 
+        </div>
+        <div>
+          <strong>Ouverture : </strong>{{k.d[8].perm_type}}{{k.d[7].perm_type}}
+        </div>
+      </ion-col>
+
+      <ion-col col-2 (click)="onDisplayPro(k.d,currentLat,currentLng)">
+      </ion-col>
+
+
+
+
+
+
+    </ion-row>
+   </div>
+    </ion-grid>
+
+    <ion-grid >
+    <ion-row *ngIf="!count && noResult">
+      <ion-col col-1></ion-col>
+      <ion-col col-10>
+        <p>Pas de résultats pour votre recherche </p>
+        <p>veuillez essayer avec un autre mot-clé.</p>
+      </ion-col>
+      <ion-col col-1></ion-col>
+    </ion-row>
+    </ion-grid>
+ <!--<ion-list>
+   <ion-item *ngFor="let i of items">{{i}}</ion-item>
+ </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" >
+      <ion-infinite-scroll-content  loadingSpinner="bubbles"
+      loadingText="Loading more data..."></ion-infinite-scroll-content>
+    </ion-infinite-scroll>-->
+</ion-content>

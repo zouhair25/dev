@@ -1,0 +1,290 @@
+page-search {
+
+   
+    ion-img{
+        min-width: 50px;
+        min-height: 50px;
+    }
+    .icon-pharmacie{
+    font-size:40px !important;
+        padding-top: 21px;
+    }
+        .icon-spa{
+    font-size:56px !important;
+    padding-top: 7px;
+    }
+    .icon-flower{
+        font-size: 64px !important;
+    }
+    .icon-doctor{
+        font-size: 48px !important;
+        padding-top: 10px;
+    }
+    .icon-pharmacie-garde{
+        font-size: 48px !important;
+        padding-top: 14px !important;
+    }
+	ion-icon {
+    &[class*="custom-"] {
+        mask-size: contain;
+        mask-position: 50% 50%;
+        mask-repeat: no-repeat;
+        background: currentColor;
+        /*width: 1em;
+        height: 1em;*/
+    }
+    &[class*="custom-hotel"] {
+        mask-image: url(../../assets/hotel.svg);
+    }
+    &[class*="custom-coffee"] {
+        mask-image: url(../../assets/coffee-cup.svg);
+    }
+    &[class*="custom-physiotherapy"] {
+        mask-image: url(../../assets/physiotherapy.svg);
+    }
+    &[class*="custom-spa"] {
+        mask-image: url(../../assets/spa.svg);
+    }
+    &[class*="custom-pharmacie"] {
+        mask-image: url(../../assets/pharmacie.svg);
+    }
+    &[class*="custom-gas-station"] {
+        mask-image: url(../../assets/gas-station.svg);
+    }
+    &[class*="custom-cupcake"] {
+        mask-image: url(../../assets/cupcake.svg);
+    }
+    &[class*="custom-doctor"] {
+        mask-image: url(../../assets/doctor.svg);
+    }
+    &[class*="custom-flower"] {
+        mask-image: url(../../assets/flower.svg);
+    }
+    &[class*="custom-phar-garde"] {
+        mask-image: url(../../assets/pharmacy-garde.svg);
+    }
+
+
+}
+
+ 
+page-search .color-back-trans ion-icon{
+	font-size: 26px;
+}
+.swiper-container-horizontal > .swiper-pagination-bullets{
+    top: 120px;
+}
+.swiper-container-android .swiper-slide{
+    padding-bottom: 30px;
+}
+ /*ion-slide {
+      background-color: #32db64;
+    }*/
+    .swiper-pagination-bullet{
+    	    background: white;
+    }
+    ion-slide ion-icon {
+      height: 70px !important;
+      width: auto !important;
+    }
+.pj{
+	border-bottom: 5px solid #ffdd00;
+}
+.color{
+	background-color:#ffdd00;
+}
+.color-wh-back{
+	background-color: white;
+}/*
+.content{
+	background-image: url('../assets/imgs/a1.jpg');
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+	background-size: contain;
+    background-position: center;
+}*/
+/*.content {
+    background-image: url('../assets/img/bg.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    flex: 1;
+    flex-direction: column;
+}*/
+ion-content{
+    background-image: url('../assets/img/bg.jpg');
+	background-size: cover;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-position-x: 50%;
+}
+.color-wh{
+ color: white !important;
+ text-transform: none
+}
+.search{
+	background-color: white;
+}
+.btn-search{
+	    height: 45px;
+	    margin-top: 0px;
+}
+.color-back-trans{
+	background-color: transparent;
+	color: white;
+}
+.s-title{text-transform: none;color: white !important;}
+
+.color-back-trans ion-icon{
+	font-size: 45px;
+}
+.categorie{
+	font-weight: 100;
+}
+
+button.color-wh{
+	font-size: 16px;
+}
+.locate{
+	background-color: transparent;
+	color: white;
+}
+
+.locate ion-icon{
+	font-size: 12px;
+}
+ion-icon{
+	color: white;
+}
+.toolbar-title-md{
+	color: white;
+}
+
+.header-md::after{
+   background-image: none !important;
+}
+.s-bonjour{
+	font-size: 30px;
+	margin: 0;
+}
+.s-bonjour-p {
+	font-size: 16px;
+	margin: 0;
+	padding-top: 5px;
+}
+
+
+@media only screen and (min-width: 768px) {
+    .col-logo {
+          max-width: 100%;
+    }
+}
+
+
+
+.professionnels {
+	margin-top: 35px;
+}
+
+ion-row .color-wh {
+    font-size: 20px;
+    font-weight: bold;
+		padding: 0;
+}
+
+.input-recherche {
+	margin-top: 10px;
+}
+
+page-search .logo {
+    width: 100%;
+    height: 100%;
+    background: none;
+		margin-top: 0;
+}
+
+.logo{
+	width: 100%;
+	height: 100%;
+	background: none;
+	margin-top: 0;
+}
+
+page-search .row-cat {
+    margin-top: 14%;
+}
+
+.row-cat{
+	margin-top: 4%;
+}
+}
+
+page-search .search {
+    background-color: white;
+    margin-left: 1%;
+		border-radius: 2px 0 0 2px;
+		height: 46px;
+}
+
+.text-input-ios {
+    margin: 12px 0 12px 14px;
+    font-size: 18px;
+}
+
+page-search .btn-search {
+    height: 46px;
+    margin-top: 0px;
+    border-radius: 0 2px 2px 0;
+    width: 100%;
+}
+
+[icon-left] ion-icon, [icon-start] ion-icon {
+    padding-left: 10px;
+    line-height: 1.67;
+    padding-right: 10px;
+    font-size: 34px;
+    color: black;
+}
+
+page-search .color-back-trans ion-icon {
+    font-size: 60px;
+}
+
+page-search .categorie {
+    font-weight: 500;
+    font-size: 14px;
+    color: white;
+}
+
+.icon-proximite-1 {
+  width: 30%;
+}
+.icon-proximite-2 {
+  width: 27%;
+}
+
+page-search .icon-pharmacie-garde {
+    font-size: 45px !important;
+
+}
+
+.icon-coffee{
+        padding-top: 5px !important;
+}
+.icon-gas-station{
+    padding-top: 5px !important;
+}
+.inverse{
+  padding-left: 12px!important;
+}
+
+.picto-1 {
+  display: inline-block;
+  color: white;
+}
+
+.picto-2 {
+  display: inline-block;
+  color: white;
+  padding-left: 10px;
+}

@@ -1,0 +1,95 @@
+<!--
+  Generated template for the JaunesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar hideBackButton="true">
+
+  	<ion-row>
+  		<ion-col col-2 >
+    		<button ion-button class="arrow-back" (click)="back(lat,lng)">
+    			<ion-icon name="arrow-back" ></ion-icon>
+    		</button>
+    	</ion-col>
+  	</ion-row>
+    <ion-row>
+      <ion-col col-6 class="padding-button" >
+        <button ion-button class="pj" (click)="onGoJaunesPage()" [disabled]="showJaune">Professionnels</button>
+      </ion-col>
+      <ion-col col-6 class="padding-button" >
+        <button ion-button class="pb" (click)="onGoBlanchesPage()" [disabled]="showBlanches">Annuaire inversé</button>
+      </ion-col>
+
+
+
+    </ion-row>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+<ion-row  *ngIf="showJaune">
+
+      <ion-col col-10>
+	      <ion-searchbar  [(ngModel)]="quiquoi" [ngModelOptions]="{standalone: true}" placeholder="Quoi, Qui... ?" #searchBox id="search-box" (keyup)="search(searchBox.value)" (ionFocus)="checkFocusQuiquoi()"
+        (ionClear)="onClearQuiquoi()"  >
+	      </ion-searchbar>
+
+             <ion-searchbar [ngModelOptions]="{standalone: true}" [(ngModel)]="ou" #searchVil id="search-vil" (keyup)="searchVille(searchVil.value)" placeholder="Où ?"
+		          class="search inp-search" (ionFocus)="checkFocus()"
+              (ionClear)="onClearOu()" >
+            </ion-searchbar>
+
+		      <ion-list class='search-drop-down'>
+              <ion-item (click)='selectValueQuiquoi(item)' *ngFor="let item of xmlItems$ | async; let i = index">
+              {{ item.title }}
+              </ion-item>
+          </ion-list>
+
+          <ion-list >
+            <ion-item (click)='selectValueOu(ville)' *ngFor="let ville of xmlOu$ | async;">
+              {{ville.title}}
+            </ion-item>
+          </ion-list>
+          <ion-list *ngIf="hasFocus && !ou">
+            <ion-item (click)='selectValueOuHistorique(ville)' *ngFor="let ville of storageVille;">
+             <ion-icon name="{{ville.icon}}" class="icon-hist"></ion-icon> {{ville.ville}}
+            </ion-item>
+          </ion-list>
+			</ion-col>
+
+      <ion-col col-2>
+				<button type="submit" ion-button icon-start
+				class="btn-search" (click)='onDisplay(ville,item,lat,lng)'>
+					<ion-icon  name="search" color="dark"></ion-icon>
+				</button>
+		  </ion-col>
+
+</ion-row>
+
+    <ion-row *ngIf="showBlanches">
+      <ion-col col-10>
+        <ion-searchbar [ngModelOptions]="{standalone: true}" [(ngModel)]="tel" #searchTel id="search-tel"  placeholder="N° de téléphone ou de fax"  class="search inp-search">
+        </ion-searchbar>
+      </ion-col>
+      <ion-col col-2>
+        <button type="submit" ion-button icon-start
+        class="blanch-search" (click)='onDisplayBlanches("tel",lat,lng)'>
+          <ion-icon  name="search" color="dark"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+
+
+
+
+
+
+</ion-content>

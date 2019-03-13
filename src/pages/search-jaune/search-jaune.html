@@ -1,0 +1,89 @@
+<ion-header>
+
+  <ion-navbar>
+     <b>{{quiquoi}}</b> <br>
+     {{ou}}
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="hist-content">
+<div *ngIf="!count && !noResult"><ion-spinner name="bubbles"></ion-spinner></div>
+
+  <ion-grid *ngIf="count>0">
+    <b> {{count}} Résultats</b>
+    <ion-row  class="hist-row" *ngFor="let l of list;let i= index">
+
+
+      <ion-col col-10 class="information" (click)="onDisplayPro(l.d,currentLat,currentLng)">
+      	<div class="rs_comp" >
+          <input type="text" name="" value="{{i+1}}" readonly="readonly" class="cercle-chiffres">
+          &nbsp;{{l.d[2].rs_comp}} {{l.d[1].rs_comp}}</div>
+
+        <div >
+          <span class="adresse">{{l.d[2].adresse}}{{l.d[3].adresse}}{{l.d[4].adresse}}</span> &nbsp;&nbsp;
+          <span class="ville">{{l.d[3].ville}}{{l.d[4].ville}}{{l.d[5].ville}}</span>
+        </div>
+
+      </ion-col>
+
+      <ion-col col-2 (click)="onDisplayPro(l.d,currentLat,currentLng)">
+      </ion-col>
+
+
+
+      <ion-col col-2 class="col-logos" (click)="onDisplayPro(l.d,currentLat,currentLng)">
+        <div class="border-logo">
+
+      	<div *ngIf='l.d[2].logo || l.d[3].logo'>
+      	 <img alt="logo" src="{{l.d[2].logo}}{{l.d[3].logo}}" class="logo-ste" />
+      	</div>
+      	<div *ngIf='!l.d[2].logo && !l.d[3].logo' >
+        <img alt="logo" src="assets/imgs/logonot.jpg" class="logo-not"/>
+        </div>
+
+        </div>
+      </ion-col>
+
+     <ion-col col-10 class="col-inscription">
+       <div class="rubrique" (click)="onDisplayPro(l.d,currentLat,currentLng)">
+
+       	<span *ngIf="l.d[6].rubrique">{{l.d[6].rubrique}}<br></span>
+        <span *ngIf="l.d[7].rubrique">{{l.d[7].rubrique}}</span>
+        <span *ngIf="l.d[8].rubrique">{{l.d[8].rubrique}}</span>
+        <span *ngIf="l.d[9].rubrique">{{l.d[9].rubrique}}</span>
+        <div *ngIf="l.d.length>10">
+       	<span *ngIf="l.d[10].rubrique">{{l.d[10].rubrique}}<br></span>
+        </div>
+        <div *ngIf="l.d.length>11">
+        <span *ngIf="l.d[11].rubrique">{{l.d[11].rubrique}}<br></span>
+        </div>
+        <div *ngIf="l.d.length>12">
+        <span *ngIf="l.d[12].rubrique">{{l.d[12].rubrique}}<br></span>
+        </div>
+
+       </div>
+     </ion-col>
+    </ion-row>
+     
+    </ion-grid>
+
+    <ion-grid >
+    <ion-row *ngIf="count==0 ||noResult">
+      <ion-col col-1></ion-col>
+      <ion-col col-10>
+        <p>Pas de résultats pour votre recherche </p>
+        <p>veuillez essayer avec un autre mot-clé.</p>
+      </ion-col>
+      <ion-col col-1></ion-col>
+    </ion-row>
+    </ion-grid>
+ <!--<ion-list>
+   <ion-item *ngFor="let i of items">{{i}}</ion-item>
+ </ion-list>-->
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" >
+      <ion-infinite-scroll-content  loadingSpinner="bubbles"
+      loadingText="Loading more data..."></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

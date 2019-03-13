@@ -1,0 +1,62 @@
+<ion-menu [content]="content" type="">
+  <ion-header>
+    <ion-toolbar align="center">
+<!--
+      <ion-title (click)="onNavigate(searchPage)">
+        <img src="../assets/img/logo.png">
+      </ion-title>
+-->
+      <ion-title (click)="onNavigate(searchPage)"><p class="titre">telecontact.ma</p></ion-title>
+
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+
+<div class="item-inner">
+
+</div>
+       <button class="btn" ion-item icon-start (click)="onNavigate(searchPage)">
+            <ion-icon  name="search"></ion-icon>
+            Rechercher
+        </button>
+        <!-- <button ion-item icon-start (click)="onNavigate(searchPage)">
+            <ion-icon name="search" ></ion-icon>Rechercher
+
+        </button>-->
+        <button class="btn" ion-item icon-start >
+            <ion-icon name="ios-undo"></ion-icon>
+            Historique
+        </button>
+
+        <button class="btn" ion-item icon-start >
+            <ion-icon name="heart"></ion-icon>
+            Favoris
+        </button>
+        <!--<button ion-item icon-start (click)="onNavigate(favorisPage)">
+            <ion-icon name="md-heart-outline" class="favoris"></ion-icon>
+
+            Favoris
+        </button>-->
+        <button class="btn" ion-item icon-start >
+            <ion-icon name="md-person"></ion-icon>
+            Mon compte
+        </button>
+        <button class="btn" ion-item icon-start >
+            <ion-icon name="md-create"></ion-icon>
+            Vos avis
+        </button>
+        <button class="btn" ion-item icon-start >
+            <ion-icon name="ios-settings"></ion-icon>
+            Paramètres
+        </button>
+        <button class="btn" ion-item icon-start >
+            <ion-icon name="ios-information-circle"></ion-icon>
+            A propos
+        </button>
+
+
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav [root]="tabsPage" #content></ion-nav>

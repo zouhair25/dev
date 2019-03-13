@@ -1,0 +1,189 @@
+
+<ion-header>
+
+  <ion-navbar class="" transparent hideBackButton="true">
+  	<ion-buttons >
+      <button ion-button icon-only  (click)="onToggleMenu()">
+        <ion-icon name="menu">
+        </ion-icon>
+        	<ion-title class="s-title">Rechercher
+            </ion-title>
+      </button>
+</ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding overflow-scroll class="content">
+
+	<ion-grid>
+
+		<ion-row>
+    	    <ion-col col-6>
+
+            </ion-col>
+    </ion-row>
+    <ion-row>
+    	    <ion-col col-6>
+            </ion-col>
+    </ion-row>
+    <ion-row>
+    	    <ion-col col-6>
+            </ion-col>
+    </ion-row>
+
+		<ion-row>
+			<ion-col class="col-logo" col-3>
+			   <ion-img class="logo" src="assets/img/tlc.png" ></ion-img>
+
+			</ion-col>
+			<ion-col col-9 class="color-wh">
+				<p class="s-bonjour">Bonjour,</p>
+				<p class="s-bonjour-p" >Que recherchez-vous ?</p>
+			</ion-col>
+		</ion-row>
+
+		<ion-row  class="professionnels">
+			<ion-col col-6>
+				<button ion-button clear class="pj color-wh" (click)="onGoJaunesPage()">Professionnels</button>
+			</ion-col>
+			<ion-col col-6>
+				<button ion-button clear class="color-wh" (click)="onGoBlanchesPage()">Annuaire inversé</button>
+			</ion-col>
+		</ion-row>
+
+		<ion-row class="input-recherche">
+			<ion-col col-9 no-padding>
+				<ion-input type="text" name="" placeholder="Quoi, qui... ?" class="search" (focus)="onGoJaunesPage()" autocomplete="on"></ion-input>
+			</ion-col>
+
+			<ion-col col-3 no-padding>
+				<button ion-button icon-start  class="color btn-search"
+				(click)="onGoJaunesPage()">
+					<ion-icon name="ios-search" ></ion-icon>
+				</button>
+			</ion-col>
+		</ion-row>
+
+		<ion-row>
+<ion-slides pager="true">
+
+  <ion-slide>
+    <ion-col col-12>
+
+    <button  (click)="onDisplayByCategory('cath5')"
+					        clear class="color-back-trans">
+			<ion-icon name="custom-cupcake">B</ion-icon>
+		    <p class="categorie" >Boulangerie</p>
+	    </button>
+
+    <button  (click)="onDisplayByCategory('cath6')"
+					        clear class="color-back-trans">
+			<ion-icon name="custom-coffee" >C</ion-icon>
+		    <p class="categorie" >Café, bar</p>
+	    </button>
+
+  	<button  (click)="onDisplayByCategory('cath13')"
+					        clear class="color-back-trans">
+			<ion-icon name="custom-gas-station" >E</ion-icon>
+		    <p class="categorie" >Essence</p>
+	   </button>
+
+      </ion-col>
+	</ion-slide>
+
+<ion-slide>
+		<ion-col col-12>
+		<button  (click)="onDisplayByCategory('cath25')"
+					        clear class="color-back-trans">
+<<<<<<< HEAD
+			<ion-icon name="custom-pharmacie" >ph</ion-icon>
+		    <p class="categorie">Pharmacie</p>
+=======
+			<ion-icon name="custom-pharmacie" class="icon-pharmacie">ph</ion-icon>
+		    <p class="categorie" >Pharmacie</p>
+>>>>>>> 67392d8fc22a71bf96bd03ca72fc632a7f0374f9
+	    </button>
+		<button  (click)="onDisplayByCategory('cath14')"
+					        clear class="color-back-trans">
+			<ion-icon name="custom-flower" class="icon-flower">F</ion-icon>
+		    <p class="categorie" >Fleuriste</p>
+	    </button>
+		<button  (click)="onDisplayByCategory('cath17')"
+					        clear class="color-back-trans">
+			<ion-icon name="custom-spa" class="icon-spa">H</ion-icon>
+		    <p class="categorie" >Hammam & spa</p>
+	    </button>
+	    </ion-col>
+	</ion-slide>
+
+	<ion-slide>
+
+		<ion-col col-12>
+			<ion-col col-4>
+
+    	<ion-col col-12>
+		<button  (click)="onDisplayByCategory('cath19')"
+					        clear class="color-back-trans">
+			<ion-icon name="custom-hotel" >H</ion-icon>
+		    <p class="categorie" >Hôtel</p>
+	    </button></ion-col>
+	    <ion-col col-4>
+		<button  (click)="onDisplayByCategory('cath21')"
+					        clear class="color-back-trans">
+			<ion-icon name="custom-physiotherapy" >K</ion-icon>
+		    <p class="categorie" >Kiné</p>
+	    </button>
+
+	    </ion-col>
+	    <ion-col col-4>
+
+		<button  (click)="onDisplayByCategory('cath23')"
+					        clear class="color-back-trans">
+			<ion-icon name="custom-doctor" class="icon-doctor">M</ion-icon>
+		    <p class="categorie" >Médecin</p>
+	    </button>
+
+	</ion-col>
+     </ion-col>
+
+</ion-col>
+</ion-slide>
+
+</ion-slides>
+
+			<!--<ion-col col-1 class="color-wh">
+				  <ion-icon ios="ios-locate" md="md-locate"></ion-icon>
+			</ion-col>
+			<ion-col col-6>
+				<div class="color-wh">CASABLANCA </div>
+			</ion-col>-->
+		</ion-row>
+
+		<!--<ion-row class="row-cat" align="center">
+
+				<ion-slides pager="true">
+				<ion-slide >
+			<ion-col col-4 *ngFor='let appareil of appareilsList'>
+
+				<button  (click)="onDisplayByCategory(appareil)"
+					        clear class="color-back-trans">
+				    <ion-icon name="{{appareil.icon}}"></ion-icon>
+				    <p class="categorie" >{{appareil.name}}</p>
+	            </button>
+
+			</ion-col>
+	            </ion-slide>
+	                </ion-slides>
+
+
+		</ion-row>-->
+
+
+
+    </ion-grid>
+
+
+
+</ion-content>
