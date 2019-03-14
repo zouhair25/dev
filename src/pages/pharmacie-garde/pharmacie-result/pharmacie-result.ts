@@ -31,7 +31,7 @@ export class PharmacieResultPage {
 
     setTimeout(()=>{
       this.noResult =true;
-    },1000)
+    },1500)
 
     this.list  = this.navParams.get('list');
 

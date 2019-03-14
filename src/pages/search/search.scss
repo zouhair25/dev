@@ -7,11 +7,11 @@ page-search {
     }
     .icon-pharmacie{
     font-size:40px !important;
-        padding-top: 21px;
+        padding-top: 16px;
     }
         .icon-spa{
     font-size:56px !important;
-    padding-top: 7px;
+    padding-top: 3px;
     }
     .icon-flower{
         font-size: 64px !important;
@@ -95,7 +95,11 @@ page-search .color-back-trans ion-icon{
 }
 .color-wh-back{
 	background-color: white;
-}/*
+}
+ .icon-hotel{
+  padding-top: 4px !important;
+ }
+/*
 .content{
 	background-image: url('../assets/imgs/a1.jpg');
 	background-repeat: no-repeat;
@@ -269,10 +273,10 @@ page-search .icon-pharmacie-garde {
 }
 
 .icon-coffee{
-        padding-top: 5px !important;
+        padding-top: 0px !important;
 }
 .icon-gas-station{
-    padding-top: 5px !important;
+    padding-top: 4px !important;
 }
 .inverse{
   padding-left: 12px!important;

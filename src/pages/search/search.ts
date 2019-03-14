@@ -8,6 +8,9 @@ import { BlanchesPage } from '../blanches/blanches';
 import { JaunesPage } from '../jaunes/jaunes';
 import { Slides } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
+import { FirebaseAnalytics } from '@ionic-native/firebase-analytics';
+
+
 
 @IonicPage()
 @Component({
@@ -26,10 +29,14 @@ export class SearchPage {
   bool: Boolean = true;
   constructor(private navCtrl: NavController, public navParams: NavParams,
               private menuCtrl: MenuController,
-              private geolocation: Geolocation,) {
+              private geolocation: Geolocation,
+              private firebaseAnalytics: FirebaseAnalytics) {
     this.getLocation();
   }
-  
+
+
+
+
   goToSlide(){
     this.slides.slideTo(2,100);
   }
@@ -54,7 +61,10 @@ export class SearchPage {
       this.getLocation();
     }
   ionViewDidLoad() {
-   
+   this.firebaseAnalytics.logEvent('search page', {page: "page d'accueil"})
+  .then((res: any) => console.log(res))
+  .catch((error: any) => console.error(error));
+
       this.go_build_pharmacie_garde();
       this.getLocation();
       this.lat =this.navParams.get('lat');

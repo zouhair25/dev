@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "933266431054",
+    "firebase_url": "https://application-telecontact.firebaseio.com",
+    "project_id": "application-telecontact",
+    "storage_bucket": "application-telecontact.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:933266431054:android:f9148218e68989ef",
+        "android_client_info": {
+          "package_name": "com.telecontact.cover"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "933266431054-gtqrclpvd8b0rhv3qj1hqm5ka9b82s86.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdKhyLObZ6fu6-QHSAGhnM1OIwVq9-c5w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
