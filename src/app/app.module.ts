@@ -8,7 +8,6 @@ import { MyApp } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { Geolocation } from '@ionic-native/geolocation';
-import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { TabsPage } from '../pages/tabs/tabs';
 import { BlanchesPage } from '../pages/blanches/blanches';
@@ -20,11 +19,12 @@ import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { Diagnostic } from '@ionic-native/diagnostic';
 import { CallNumber } from '@ionic-native/call-number';
 import { FirebaseAnalytics } from '@ionic-native/firebase-analytics';
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
+import { GoogleAnalyitcsService } from '../providers/GoogleAnalyitcs.service';
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
     ContactPage,
     TabsPage,
     JaunesPage,
@@ -41,7 +41,6 @@ import { FirebaseAnalytics } from '@ionic-native/firebase-analytics';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
     ContactPage,
     TabsPage,
     JaunesPage,
@@ -60,6 +59,8 @@ import { FirebaseAnalytics } from '@ionic-native/firebase-analytics';
     Diagnostic,
     CallNumber,
     FirebaseAnalytics,
+    GoogleAnalytics,
+    GoogleAnalyitcsService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

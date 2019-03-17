@@ -9,6 +9,7 @@ import { JaunesPage } from '../jaunes/jaunes';
 import { Slides } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { FirebaseAnalytics } from '@ionic-native/firebase-analytics';
+import { GoogleAnalyitcsService } from '../../providers/GoogleAnalyitcs.service';
 
 
 
@@ -30,7 +31,9 @@ export class SearchPage {
   constructor(private navCtrl: NavController, public navParams: NavParams,
               private menuCtrl: MenuController,
               private geolocation: Geolocation,
-              private firebaseAnalytics: FirebaseAnalytics) {
+              private firebaseAnalytics: FirebaseAnalytics,
+              private googleAnalyitcsService: GoogleAnalyitcsService,
+              ) {
     this.getLocation();
   }
 
@@ -57,10 +60,14 @@ export class SearchPage {
     }).catch((error) => {
    });
     }
+
     ionViewDidEntrer(){
       this.getLocation();
     }
   ionViewDidLoad() {
+    //appel a google analytics
+     this.googleAnalyitcsService.analyticsGoogles('SearchPage');
+    //appel a firebase analytics
    this.firebaseAnalytics.logEvent('search page', {page: "page d'accueil"})
   .then((res: any) => console.log(res))
   .catch((error: any) => console.error(error));

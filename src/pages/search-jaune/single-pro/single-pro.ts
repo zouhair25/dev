@@ -18,6 +18,7 @@ import {  trigger,  state,
         style,  animate,  transition,} from '@angular/animations';
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 import { CallNumber } from '@ionic-native/call-number';
+import { GoogleAnalyitcsService } from '../../../providers/GoogleAnalyitcs.service';
 
 @IonicPage()
 @Component({
@@ -184,6 +185,7 @@ export class SingleProPage {
               private platform: Platform,
               private launchNavigator: LaunchNavigator,
               private callNumber: CallNumber,
+              private googleAnalyitcsService: GoogleAnalyitcsService,              
               ) {
      
   }
@@ -236,10 +238,11 @@ export class SingleProPage {
           });
         })
       }
-      ionViewDidEnter(){
 
-      }
   ionViewDidLoad() {
+     //appel a google analytics
+     this.googleAnalyitcsService.analyticsGoogles('SingleProPage');
+
 
     // this.loadMap();
 

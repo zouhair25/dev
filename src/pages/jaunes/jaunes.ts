@@ -10,6 +10,7 @@ import {
  } from 'rxjs/operators';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Storage } from '@ionic/storage';
+import { GoogleAnalyitcsService } from '../../providers/GoogleAnalyitcs.service';
 
 @Component({
   selector: 'page-jaunes',
@@ -43,6 +44,7 @@ export class JaunesPage{
               private el: ElementRef,
               private geolocation: Geolocation,
               private storage: Storage,
+              private googleAnalyitcsService: GoogleAnalyitcsService,
               ) {
 
   }
@@ -96,6 +98,9 @@ export class JaunesPage{
     }
  
     ionViewDidLoad() {
+
+     //appel a google analytics
+     this.googleAnalyitcsService.analyticsGoogles('JaunesPage');
 
       setTimeout(() => {
         this.searchBox.setFocus();

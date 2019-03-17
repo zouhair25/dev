@@ -7,6 +7,8 @@ import {
    debounceTime, distinctUntilChanged, switchMap
  } from 'rxjs/operators';
 import { Geolocation } from '@ionic-native/geolocation';
+import { GoogleAnalyitcsService } from '../../providers/GoogleAnalyitcs.service';
+
 @IonicPage()
 @Component({
   selector: 'page-search-jaune',
@@ -41,6 +43,8 @@ export class SearchJaunePage implements OnInit{
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
   	          private geolocation: Geolocation,
+              private googleAnalyitcsService: GoogleAnalyitcsService,
+
               ) {
     
   }
@@ -103,7 +107,8 @@ infiniteScroll.complete();
   }
   ionViewDidLoad() {
    
-
+     //appel a google analytics
+     this.googleAnalyitcsService.analyticsGoogles('SearchJaunePage');
 
 
         this.quiquoi =this.navParams.get('quiquoi');
@@ -129,9 +134,7 @@ infiniteScroll.complete();
           console.log('lng',this.currentLng);
        }  
   }
-  ionViewDidEnter (){
- 
-  }
+
 
      onSubmitForm(quiquoi: string, ou: string){
         this.listesResultats(quiquoi,ou).then(
