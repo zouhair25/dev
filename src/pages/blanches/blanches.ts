@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import * as $ from 'jquery';
 import xml2js from 'xml2js';
 import { JaunesPage } from '../jaunes/jaunes';
+import { GoogleAnalyitcsService } from '../../providers/GoogleAnalyitcs.service';
 
 @Component({
   selector: 'page-blanches',
@@ -17,11 +18,15 @@ export class BlanchesPage {
   lat;
   lng;
   noResult: boolean = false; 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private googleAnalyitcsService: GoogleAnalyitcsService,
               ) {
   }
 
   ionViewDidLoad() {
+     //appel a google analytics
+     this.googleAnalyitcsService.analyticsGoogles('Annuaire inversé');
             this.tel =this.navParams.get('tel');
             this.lat =this.navParams.get('lat');
             this.lng =this.navParams.get('lng');

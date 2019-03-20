@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { GoogleAnalyitcsService } from '../../providers/GoogleAnalyitcs.service';
 
 
 @IonicPage()
@@ -12,12 +13,17 @@ export class PharmacieGardePage {
   list;
   currentLat;
   currentLng
-  constructor(public navCtrl: NavController, public navParams: NavParams,
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private googleAnalyitcsService: GoogleAnalyitcsService,
               
               ) {
   }
 
   ionViewDidLoad() {
+      //appel a google analytics
+    this.googleAnalyitcsService.analyticsGoogles('Pharmacie de garde');
+
   	this.list = this.navParams.get('list');
     this.currentLat =this.navParams.get('lat');
     this.currentLng =this.navParams.get('lng');

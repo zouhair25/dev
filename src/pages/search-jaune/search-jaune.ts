@@ -108,7 +108,7 @@ infiniteScroll.complete();
   ionViewDidLoad() {
    
      //appel a google analytics
-     this.googleAnalyitcsService.analyticsGoogles('SearchJaunePage');
+     this.googleAnalyitcsService.analyticsGoogles('liste des professionnels');
 
 
         this.quiquoi =this.navParams.get('quiquoi');

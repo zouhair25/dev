@@ -20,6 +20,7 @@ import {  trigger,  state,
         style,  animate,  transition,} from '@angular/animations';
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 import { CallNumber } from '@ionic-native/call-number';
+import { GoogleAnalyitcsService } from '../../../providers/GoogleAnalyitcs.service';
 
 @IonicPage()
 @Component({
@@ -188,7 +189,9 @@ export class SingleAnvPage {
               private geolocation: Geolocation, private googleMaps: GoogleMaps,
               private platform: Platform,
               private launchNavigator: LaunchNavigator,
-              private callNumber: CallNumber,) {
+              private callNumber: CallNumber,
+              private googleAnalyitcsService: GoogleAnalyitcsService,
+              ) {
      
   }
 
@@ -601,7 +604,8 @@ export class SingleAnvPage {
 
 
   ionViewDidLoad() {
-
+         //appel a google analytics
+     this.googleAnalyitcsService.analyticsGoogles('Annuaire inversé : page annonceur ');
     // this.loadMap();
 
 

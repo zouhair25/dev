@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import * as $ from 'jquery';
 import xml2js from 'xml2js';
+import { GoogleAnalyitcsService } from '../../providers/GoogleAnalyitcs.service';
 
 @IonicPage()
 @Component({
@@ -25,11 +26,17 @@ export class AutourMoiPage {
   currentLng;
   noResult: boolean = false; 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private googleAnalyitcsService: GoogleAnalyitcsService,
+              
               ) {
   }
 
   ionViewDidLoad() {
+         //appel a google analytics
+     this.googleAnalyitcsService.analyticsGoogles('Autour de moi');
+
         this.quiquoi =this.navParams.get('quiquoi');
 
   	    this.currentLat =this.navParams.get('lat');

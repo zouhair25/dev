@@ -2,6 +2,7 @@ import { Component,Pipe, PipeTransform  } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import * as $ from 'jquery';
 import xml2js from 'xml2js';
+import { GoogleAnalyitcsService } from '../../../providers/GoogleAnalyitcs.service';
 
 @IonicPage()
 @Component({
@@ -23,11 +24,15 @@ export class PharmacieResultPage {
   count;
   ou;
   noResult: boolean = false; 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private googleAnalyitcsService: GoogleAnalyitcsService,
              ) {
   }
 
   ionViewDidLoad() {
+     //appel a google analytics
+     this.googleAnalyitcsService.analyticsGoogles('Ville pharmacie de garde');
 
     setTimeout(()=>{
       this.noResult =true;

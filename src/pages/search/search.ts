@@ -66,7 +66,7 @@ export class SearchPage {
     }
   ionViewDidLoad() {
     //appel a google analytics
-     this.googleAnalyitcsService.analyticsGoogles('SearchPage');
+     this.googleAnalyitcsService.analyticsGoogles("Page d'accueil");
     //appel a firebase analytics
    this.firebaseAnalytics.logEvent('search page', {page: "page d'accueil"})
   .then((res: any) => console.log(res))

@@ -100,7 +100,7 @@ export class JaunesPage{
     ionViewDidLoad() {
 
      //appel a google analytics
-     this.googleAnalyitcsService.analyticsGoogles('JaunesPage');
+     this.googleAnalyitcsService.analyticsGoogles('page de recherche');
 
       setTimeout(() => {
         this.searchBox.setFocus();

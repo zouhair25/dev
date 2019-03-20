@@ -241,7 +241,7 @@ export class SingleProPage {
 
   ionViewDidLoad() {
      //appel a google analytics
-     this.googleAnalyitcsService.analyticsGoogles('SingleProPage');
+     this.googleAnalyitcsService.analyticsGoogles('page annonceur');
 
 
     // this.loadMap();

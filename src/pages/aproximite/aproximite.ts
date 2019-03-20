@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import * as $ from 'jquery';
 import xml2js from 'xml2js';
+import { GoogleAnalyitcsService } from '../../providers/GoogleAnalyitcs.service';
 
 @IonicPage()
 @Component({
@@ -31,10 +32,15 @@ export class AproximitePage {
   reste =this.start;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private geolocation: Geolocation,) {
+              private geolocation: Geolocation,
+              private googleAnalyitcsService: GoogleAnalyitcsService,
+              ) {
   }
 
   ionViewDidLoad() {
+         //appel a google analytics
+     this.googleAnalyitcsService.analyticsGoogles('A proximité');
+
     //this.list=this.navParams.get('list')
     this.categorie=this.navParams.get('categorie');
     this.latitude= this.navParams.get('lat');
