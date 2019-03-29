@@ -1,0 +1,89 @@
+<ion-header>
+
+  <ion-navbar>
+     <b>Pharmacie de garde à votre proximité !</b> <br>
+      
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="hist-content">
+<div *ngIf="!count && !noResult"><ion-spinner name="bubbles"></ion-spinner></div>
+
+  <ion-grid *ngIf="count>0">
+    <b> {{count}} Résultats</b>
+    <div *ngFor="let k of list;let i= index">
+
+
+     <ion-row  class="hist-row" >
+
+
+      <ion-col col-10 class="information" (click)="onDisplayPro(k.d,currentLat,currentLng)">
+        <div class="rs_comp" >
+          <input type="text" name="" value="{{i+1}}" readonly="readonly" class="cercle-chiffres">
+          &nbsp;{{k.d[2].rs_comp}} {{k.d[1].rs_comp}}</div>
+
+        <div >
+          <span class="adresse">{{k.d[2].adresse}}{{k.d[3].adresse}}{{k.d[4].adresse}}</span> &nbsp;&nbsp; 
+        </div>
+        <div>
+          <strong>Ouverture : </strong>
+          {{k.d[5].perm_type}}
+          {{k.d[6].perm_type}}
+          {{k.d[8].perm_type}}
+          {{k.d[7].perm_type}}
+        </div>
+        <div class="distance" >Distance: 
+          <span >{{k.d[8].distance}}</span>
+          <span >{{k.d[9].distance}}</span>
+          <span >{{k.d[10].distance}}</span>
+          <span *ngIf="k.d.length>11">{{k.d[11].distance}}</span>
+          <span *ngIf="k.d.length>12">{{k.d[12].distance}}</span>
+          <span *ngIf="k.d.length>13">{{k.d[13].distance}}</span>
+          <span *ngIf="k.d.length>14">{{k.d[14].distance}}</span>
+          <span *ngIf="k.d.length>15">{{k.d[15].distance}}</span>
+          <span *ngIf="k.d.length>16">{{k.d[16].distance}}</span>
+          <span *ngIf="k.d.length>17">{{k.d[17].distance}}</span>
+          <span *ngIf="k.d.length>18">{{k.d[18].distance}}</span>
+          <span *ngIf="k.d.length>19">{{k.d[19].distance}}</span>
+          <span *ngIf="k.d.length>20">{{k.d[20].distance}}</span>
+          <span *ngIf="k.d.length>21">{{k.d[21].distance}}</span>
+          <span *ngIf="k.d.length>22">{{k.d[22].distance}}</span>
+          m
+        </div>        
+      </ion-col>
+
+      <ion-col col-2 (click)="onDisplayPro(k.d,currentLat,currentLng)">
+      </ion-col>
+
+
+
+
+
+
+    </ion-row>
+   </div>
+    </ion-grid>
+
+    <ion-grid >
+    <ion-row *ngIf="!count && noResult">
+      <ion-col col-1></ion-col>
+      <ion-col col-10>
+        <p>Pas de résultats pour votre recherche </p>
+        <p>veuillez essayer avec un autre mot-clé.</p>
+      </ion-col>
+      <ion-col col-1></ion-col>
+    </ion-row>
+    </ion-grid>
+
+    <ion-grid >
+    <ion-row *ngIf="currentLat && currentLng">
+      <ion-col col-1></ion-col>
+      <ion-col col-10>
+        <p>veuillez réessayer, encours de récupération localisation ...</p>
+      </ion-col>
+      <ion-col col-1></ion-col>
+    </ion-row>
+    </ion-grid>
+ 
+</ion-content>

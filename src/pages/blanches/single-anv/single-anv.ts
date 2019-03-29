@@ -604,8 +604,12 @@ export class SingleAnvPage {
 
 
   ionViewDidLoad() {
-         //appel a google analytics
-     this.googleAnalyitcsService.analyticsGoogles('Annuaire inversé : page annonceur ');
+    //appel a google analytics
+    this.googleAnalyitcsService.analyticsGoogles('Annuaire inversé : page annonceur ');
+
+    //appel a firebase analytics
+    this.googleAnalyitcsService.analyticsFirebase("page annonceur", {page: "page annonceur"});
+
     // this.loadMap();
 
 

@@ -110,6 +110,9 @@ infiniteScroll.complete();
      //appel a google analytics
      this.googleAnalyitcsService.analyticsGoogles('liste des professionnels');
 
+     //appel a firebase analytics
+     this.googleAnalyitcsService.analyticsFirebase("liste des professionnels", {page: "liste des professionnels"});
+
 
         this.quiquoi =this.navParams.get('quiquoi');
         this.ou =this.navParams.get('ou');

@@ -19,6 +19,7 @@ import {  trigger,  state,
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 import { CallNumber } from '@ionic-native/call-number';
 import { GoogleAnalyitcsService } from '../../../providers/GoogleAnalyitcs.service';
+import { DiagnosticService } from '../../../providers/Diagnostic.service';
 
 @IonicPage()
 @Component({
@@ -31,7 +32,7 @@ import { GoogleAnalyitcsService } from '../../../providers/GoogleAnalyitcs.servi
         height: '30%',
       })),
       state('closed', style({
-        height: '400px',
+        height: '90%',
       })),
       
     transition('open <=> closed', [
@@ -185,25 +186,31 @@ export class SingleProPage {
               private platform: Platform,
               private launchNavigator: LaunchNavigator,
               private callNumber: CallNumber,
-              private googleAnalyitcsService: GoogleAnalyitcsService,              
+              private googleAnalyitcsService: GoogleAnalyitcsService,
+              private diagnosticService: DiagnosticService,              
               ) {
      
   }
 
    //for y aller
    navigateLocation(){
-     let options: LaunchNavigatorOptions = {
-     start: [this.currentLat,this.currentLng],
-     app: this.launchNavigator.APP.GOOGLE_MAPS
-      };
+      if(this.currentLng && this.currentLat){
+       let options: LaunchNavigatorOptions = {
+       start: [this.currentLat,this.currentLng],
+       app: this.launchNavigator.APP.GOOGLE_MAPS
+        };
 
-      this.launchNavigator.navigate([this.destinationLat,this.destinationLng],options)
-       .then(success =>{
-        console.log(success);
-        },error=>{
-        console.log(error);
-      })
-       console.log('success');
+        this.launchNavigator.navigate([this.destinationLat,this.destinationLng],options)
+         .then(success =>{
+          console.log(success);
+          },error=>{
+          console.log(error);
+        })
+         console.log('success');       
+      }else{
+        this.diagnosticService.enableLocation();
+      }
+
    }
    callNumbers(){
 
@@ -243,6 +250,8 @@ export class SingleProPage {
      //appel a google analytics
      this.googleAnalyitcsService.analyticsGoogles('page annonceur');
 
+    //appel a firebase analytics
+    this.googleAnalyitcsService.analyticsFirebase("page annonceur", {page: "page annonceur"});
 
     // this.loadMap();
 

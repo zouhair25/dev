@@ -21,6 +21,7 @@ import { CallNumber } from '@ionic-native/call-number';
 import { FirebaseAnalytics } from '@ionic-native/firebase-analytics';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { GoogleAnalyitcsService } from '../providers/GoogleAnalyitcs.service';
+import { DiagnosticService } from '../providers/Diagnostic.service';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { GoogleAnalyitcsService } from '../providers/GoogleAnalyitcs.service';
     FirebaseAnalytics,
     GoogleAnalytics,
     GoogleAnalyitcsService,
+    DiagnosticService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

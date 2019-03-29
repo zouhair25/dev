@@ -11,6 +11,7 @@ import {
 import { Geolocation } from '@ionic-native/geolocation';
 import { Storage } from '@ionic/storage';
 import { GoogleAnalyitcsService } from '../../providers/GoogleAnalyitcs.service';
+import { DiagnosticService } from '../../providers/Diagnostic.service';
 
 @Component({
   selector: 'page-jaunes',
@@ -45,6 +46,8 @@ export class JaunesPage{
               private geolocation: Geolocation,
               private storage: Storage,
               private googleAnalyitcsService: GoogleAnalyitcsService,
+              private diagnosticService: DiagnosticService
+
               ) {
 
   }
@@ -99,8 +102,6 @@ export class JaunesPage{
  
     ionViewDidLoad() {
 
-     //appel a google analytics
-     this.googleAnalyitcsService.analyticsGoogles('page de recherche');
 
       setTimeout(() => {
         this.searchBox.setFocus();
@@ -114,10 +115,8 @@ export class JaunesPage{
            // ici le test sur pro ou inv 
            if(this.type==="inv"){
             this.onGoBlanchesPage();
-            console.log('onGoBlanchesPage');
            }else{
             this.onGoJaunesPage();
-            console.log('onGoJaunesPage');
            } 
            this.searching = false;
            this.xmlItems$ = this.searchTerm.pipe(
@@ -131,7 +130,12 @@ export class JaunesPage{
            switchMap((term: string)=> this.auto_ouLoadXML(term)),
             );
            
-          
+             //appel a google analytics
+     this.googleAnalyitcsService.analyticsGoogles('page de recherche');
+
+     //appel a firebase analytics
+     this.googleAnalyitcsService.analyticsFirebase("page de recherche", {page: "page de recherche"});
+  
     }
 
     selectValueQuiquoi(item){
@@ -201,7 +205,6 @@ export class JaunesPage{
 
         // permet de tester si quiquoi ou ville est vide sinon il redirege vers la page search-jaune
     onDisplay(quiquoi, ou,lat,lng){
-               console.log('itemitemitemitem');
                this.quiquoi =this.quiquoi.toLowerCase();
                this.ou =this.ou.toLowerCase();
 
@@ -214,9 +217,22 @@ export class JaunesPage{
                 this.searchVil.setFocus();
                 console.log('Focus',this.searchVil);
                },10);
-           }else if(this.ou=='autour de moi' || this.ou=="Autour de moi"){
+           }else if((this.ou=='autour de moi' || this.ou=="Autour de moi")&&
+                   (this.quiquoi!='pharmacie de garde' && this.quiquoi!='pharmacie garde'
+                   && this.quiquoi!='pharmacies garde'&& this.quiquoi!='pharmacies de garde' )){
+             if (!this.lat && !this.lng) {                    
+               this.diagnosticService.enableLocation();     
+             }else{
               this.navCtrl.push('AutourMoiPage',{ou: this.ou, quiquoi: this.quiquoi,lat: this.lat,lng: this.lng})
+               
+             }
           console.log('AutourMoiPage oui');
+           }
+           else if((this.ou=='autour de moi' || this.ou=="Autour de moi")&&
+                   (this.quiquoi=='pharmacie de garde' || this.quiquoi=='pharmacie garde'
+                   || this.quiquoi=='pharmacies garde'|| this.quiquoi=='pharmacies de garde' )){
+              this.navCtrl.push('PharmacieGardeAproximitePage',{ou: this.ou, quiquoi: this.quiquoi,lat: this.lat,lng: this.lng})
+          console.log('PharmacieGardeAproximitePage oui');
            }
            else if(this.quiquoi=='pharmacie de garde' || this.quiquoi=='pharmacie garde'
                    || this.quiquoi=='pharmacies garde'|| this.quiquoi=='pharmacies de garde'
@@ -385,8 +401,7 @@ export class JaunesPage{
                     
                               
                    for(let answers of result.search_answers.search_answer) {
-                                          console.log('answers d',answers);  
-
+                                      
                          if (answers.items[0].item) {
                  
                      for(let item of answers.items){

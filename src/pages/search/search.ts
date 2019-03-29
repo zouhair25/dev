@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { Platform,IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import * as $ from 'jquery';
 import xml2js from 'xml2js';
@@ -8,10 +8,8 @@ import { BlanchesPage } from '../blanches/blanches';
 import { JaunesPage } from '../jaunes/jaunes';
 import { Slides } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
-import { FirebaseAnalytics } from '@ionic-native/firebase-analytics';
 import { GoogleAnalyitcsService } from '../../providers/GoogleAnalyitcs.service';
-
-
+import { DiagnosticService } from '../../providers/Diagnostic.service';
 
 @IonicPage()
 @Component({
@@ -28,13 +26,16 @@ export class SearchPage {
   count;
   list_ville;
   bool: Boolean = true;
-  constructor(private navCtrl: NavController, public navParams: NavParams,
+  constructor(platform: Platform, private navCtrl: NavController,
+              public navParams: NavParams,
               private menuCtrl: MenuController,
               private geolocation: Geolocation,
-              private firebaseAnalytics: FirebaseAnalytics,
               private googleAnalyitcsService: GoogleAnalyitcsService,
+              private diagnosticService: DiagnosticService
               ) {
-    this.getLocation();
+    
+    this.getLocationReelTime();
+ 
   }
 
 
@@ -54,47 +55,54 @@ export class SearchPage {
 
   }
     getLocation(){
-        this.geolocation.getCurrentPosition().then((resp)=>{
+     this.geolocation.getCurrentPosition().then((resp)=>{
      this.lat = resp.coords.latitude;
      this.lng = resp.coords.longitude;
+      console.log('getLocation.lat',this.lat);
+      console.log('getLocation.lng',this.lng);
     }).catch((error) => {
-   });
+    });
+    }
+    getLocationReelTime(){
+      let watch =this.geolocation.watchPosition();
+       watch.subscribe((data)=>{
+         this.lat = data.coords.latitude;
+         this.lng = data.coords.longitude;
+      console.log('this.lat',this.lat);
+      console.log('this.lng',this.lng);
+       })
     }
 
     ionViewDidEntrer(){
-      this.getLocation();
+      if(!this.lat && !this.lng){
+        setTimeout(()=>{
+          this.getLocationReelTime();
+        },50);
+      }  
     }
   ionViewDidLoad() {
-    //appel a google analytics
-     this.googleAnalyitcsService.analyticsGoogles("Page d'accueil");
-    //appel a firebase analytics
-   this.firebaseAnalytics.logEvent('search page', {page: "page d'accueil"})
-  .then((res: any) => console.log(res))
-  .catch((error: any) => console.error(error));
-
-      this.go_build_pharmacie_garde();
+      if(!this.lat && !this.lng){
+        setTimeout(()=>{
+          this.getLocationReelTime();
+        },1);
+      }
       this.getLocation();
+      this.go_build_pharmacie_garde();
+      
       this.lat =this.navParams.get('lat');
       this.lng =this.navParams.get('lng');
+      this.getLocationReelTime();
       console.log('this.lat',this.lat);
       console.log('this.lng',this.lng);
 
 
-     let watch =this.geolocation.watchPosition();
-       watch.subscribe((data)=>{
-          /*console.log("Latitude ",data.coords.latitude)   ;
-          console.log("longitude ",data.coords.longitude)   ; 
-          console.log("altitude ",data.coords.altitude)   ;      
-          console.log("accuracy ",data.coords.accuracy)   ;      
-          console.log("altitudeAccuracy   ",data.coords.altitudeAccuracy  )   ;      
-          console.log("heading   ",data.coords.heading  )   ;      
-          console.log("speed   ",data.coords.speed  )   ;      
-          console.log("timestamp   ",data.timestamp)   ; */     
 
-       //this.onDisplayRaccourcis(data.coords.latitude,data.coords.longitude);
-       })
-       
-   
+
+    //appel a google analytics
+     this.googleAnalyitcsService.analyticsGoogles("Page d'accueil");
+    //appel a firebase analytics
+    this.googleAnalyitcsService.analyticsFirebase("Page d'accueil", {page: "Page d'accueil"});
+
   ////////////////////////////////////
   }
 
@@ -102,7 +110,23 @@ export class SearchPage {
 
 
     onDisplayByCategory(name: string){
-      this.navCtrl.push('AproximitePage',{categorie: name,lat: this.lat,lng: this.lng});
+       let watch =this.geolocation.watchPosition();
+       watch.subscribe((data)=>{
+         this.lat = data.coords.latitude;
+         this.lng = data.coords.longitude;
+       console.log('this.lat',this.lat);
+       console.log('this.lng',this.lng);
+       })
+       if(this.lat && this.lng){
+        this.navCtrl.push('AproximitePage',{categorie: name,lat: this.lat,lng: this.lng});
+       }else{
+         if(!this.lat && !this.lng){
+         this.diagnosticService.enableLocation();
+       }
+       setTimeout(()=>{
+        this.navCtrl.push('AproximitePage',{categorie: name,lat: this.lat,lng: this.lng});
+       },100);
+       }
     }
 
 
@@ -112,7 +136,33 @@ export class SearchPage {
     
 
     onDisplayPharmacieGarde(list,lat,lng){
-      this.navCtrl.push('PharmacieGardePage',{list: this.list_ville,lat: this.lat,lng: this.lng});
+            let watch =this.geolocation.watchPosition();
+       watch.subscribe((data)=>{
+         this.lat = data.coords.latitude;
+         this.lng = data.coords.longitude;
+      console.log('this.lat',this.lat);
+      console.log('this.lng',this.lng);
+       })
+
+      if(!this.lat && !this.lng){
+        this.diagnosticService.enableLocation();
+      }else{
+        setTimeout(()=>{
+        this.navCtrl.push('PharmacieGardePage',{list: this.list_ville,lat: this.lat,lng: this.lng});        
+        },100);
+      }
+         }
+    onDisplayPharmacieGardeAproximite(quiquoi,lat,lng){
+      if(this.lat && this.lng){
+        this.navCtrl.push('PharmacieGardeAproximitePage',{quiquoi,lat: this.lat,lng: this.lng})        
+      }else{
+        if(!this.lat && !this.lng){
+          this.diagnosticService.enableLocation();
+        }
+         setTimeout(()=>{
+          this.navCtrl.push('PharmacieGardeAproximitePage',{quiquoi,lat: this.lat,lng: this.lng})        
+          },100);        
+      }
     }
     go_build_pharmacie_garde(){
        this.pharmacies_garde_load_city().then((data)=>{

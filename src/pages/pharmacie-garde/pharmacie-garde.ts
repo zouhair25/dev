@@ -21,8 +21,11 @@ export class PharmacieGardePage {
   }
 
   ionViewDidLoad() {
-      //appel a google analytics
+    //appel a google analytics
     this.googleAnalyitcsService.analyticsGoogles('Pharmacie de garde');
+
+    //appel a firebase analytics
+    this.googleAnalyitcsService.analyticsFirebase("Pharmacie de garde", {page: "Pharmacie de garde"});
 
   	this.list = this.navParams.get('list');
     this.currentLat =this.navParams.get('lat');

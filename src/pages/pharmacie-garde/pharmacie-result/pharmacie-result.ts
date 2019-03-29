@@ -33,6 +33,9 @@ export class PharmacieResultPage {
   ionViewDidLoad() {
      //appel a google analytics
      this.googleAnalyitcsService.analyticsGoogles('Ville pharmacie de garde');
+     
+    //appel a firebase analytics
+    this.googleAnalyitcsService.analyticsFirebase("Ville pharmacie de garde", {page: "Ville pharmacie de garde"});
 
     setTimeout(()=>{
       this.noResult =true;
@@ -69,6 +72,8 @@ export class PharmacieResultPage {
         this.result =this.transform(data[0],'quartier');
          this.count =data[1];
           console.log('count :',this.count);
+          console.log('result :',this.result);
+          
      
     	});
     }
