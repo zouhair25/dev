@@ -52,14 +52,12 @@ export class JaunesPage{
 
   }
 
-   getLocation(){
-        this.geolocation.getCurrentPosition().then((resp)=>{
-     console.log('Location', resp);
-     this.lat = resp.coords.latitude;
-     this.lng = resp.coords.longitude;
-    }).catch((error) => {
-     console.log('Error getting location', error);
-   });
+    getLocationReelTime(){
+      let watch =this.geolocation.watchPosition();
+       watch.subscribe((data)=>{
+         this.lat = data.coords.latitude;
+         this.lng = data.coords.longitude;
+       })
     }
 
      
@@ -107,7 +105,11 @@ export class JaunesPage{
         this.searchBox.setFocus();
 
       },100);
-      this.getLocation();
+           if(!this.lat && !this.lng){
+             setTimeout(()=>{
+               this.getLocationReelTime();
+             },100);
+           }
            // recuperation de type pro ou inv pour savoir quel est à afficher
            this.type=this.navParams.get('type');
            this.lat =this.navParams.get('lat');
@@ -207,7 +209,11 @@ export class JaunesPage{
     onDisplay(quiquoi, ou,lat,lng){
                this.quiquoi =this.quiquoi.toLowerCase();
                this.ou =this.ou.toLowerCase();
-
+           if(!this.lat && !this.lng){
+             setTimeout(()=>{
+               this.getLocationReelTime();
+             },100);
+           }
            if(this.quiquoi=='' || this.quiquoi==null){        
                setTimeout(() => {
                 this.searchBox.setFocus();
@@ -220,8 +226,9 @@ export class JaunesPage{
            }else if((this.ou=='autour de moi' || this.ou=="Autour de moi")&&
                    (this.quiquoi!='pharmacie de garde' && this.quiquoi!='pharmacie garde'
                    && this.quiquoi!='pharmacies garde'&& this.quiquoi!='pharmacies de garde' )){
-             if (!this.lat && !this.lng) {                    
-               this.diagnosticService.enableLocation();     
+             if (!this.lat && !this.lng) {  
+               this.diagnosticService.enableLocation();   
+
              }else{
               this.navCtrl.push('AutourMoiPage',{ou: this.ou, quiquoi: this.quiquoi,lat: this.lat,lng: this.lng})
                

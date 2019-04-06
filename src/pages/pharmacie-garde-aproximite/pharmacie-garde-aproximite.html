@@ -56,17 +56,12 @@
       <ion-col col-2 (click)="onDisplayPro(k.d,currentLat,currentLng)">
       </ion-col>
 
-
-
-
-
-
     </ion-row>
    </div>
     </ion-grid>
 
     <ion-grid >
-    <ion-row *ngIf="!count && noResult">
+    <ion-row *ngIf="!count && noResult && currentLat && currentLng">
       <ion-col col-1></ion-col>
       <ion-col col-10>
         <p>Pas de résultats pour votre recherche </p>
@@ -77,10 +72,10 @@
     </ion-grid>
 
     <ion-grid >
-    <ion-row *ngIf="currentLat && currentLng">
+    <ion-row *ngIf="!currentLat && !currentLng">
       <ion-col col-1></ion-col>
       <ion-col col-10>
-        <p>veuillez réessayer, encours de récupération localisation ...</p>
+        <p class="notLoc">Veuillez réessayer, en cours</p><p> de récupérer la localisation.</p>
       </ion-col>
       <ion-col col-1></ion-col>
     </ion-row>

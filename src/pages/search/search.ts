@@ -153,16 +153,10 @@ export class SearchPage {
       }
          }
     onDisplayPharmacieGardeAproximite(quiquoi,lat,lng){
-      if(this.lat && this.lng){
+      
         this.navCtrl.push('PharmacieGardeAproximitePage',{quiquoi,lat: this.lat,lng: this.lng})        
-      }else{
-        if(!this.lat && !this.lng){
-          this.diagnosticService.enableLocation();
-        }
-         setTimeout(()=>{
-          this.navCtrl.push('PharmacieGardeAproximitePage',{quiquoi,lat: this.lat,lng: this.lng})        
-          },100);        
-      }
+          //this.navCtrl.push('PharmacieGardeAproximitePage',{quiquoi,lat: this.lat,lng: this.lng})                       
+      
     }
     go_build_pharmacie_garde(){
        this.pharmacies_garde_load_city().then((data)=>{

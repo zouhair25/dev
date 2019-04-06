@@ -81,9 +81,20 @@
      
     </ion-grid>
 
-    <ion-grid >
-    <ion-row *ngIf="count==0 ||noResult">
-      <ion-col col-12 class="not-result">Pas de résultats à proximité de vous.</ion-col></ion-row>
+    <ion-grid>
+      <ion-row *ngIf="count==0 || noResult && currentLat && currentLng">
+        <ion-col col-12 class="not-result">Pas de résultats à proximité de vous.</ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+    <ion-row *ngIf="count==0 || noResult && !currentLat && !currentLng">
+      <ion-col col-1></ion-col>
+      <ion-col col-10>
+        <p class="notLoc">Veuillez réessayer, en cours</p><p> de récupérer la localisation.</p>
+      </ion-col>
+      <ion-col col-1></ion-col>
+    </ion-row>
     </ion-grid>
  <!--<ion-list>
    <ion-item *ngFor="let i of items">{{i}}</ion-item>

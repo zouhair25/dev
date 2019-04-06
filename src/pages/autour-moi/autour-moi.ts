@@ -43,7 +43,6 @@ export class AutourMoiPage {
         this.currentLng =this.navParams.get('lng');
         this.list=this.go_build_quiquoi_approxy(this.quiquoi,this.currentLat,this.currentLng,this.start);
 
-
   }
     
     onDisplayPro(pro: {rs_comp: string, adresse: string}){

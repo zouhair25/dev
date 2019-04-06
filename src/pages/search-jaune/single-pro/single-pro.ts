@@ -686,7 +686,7 @@ export class SingleProPage {
       // recuperation des prestation et passer le code firme
       setTimeout(()=>{
       this.listPrestations=this.prestation_dispaly(this.code_firme);
-    },500)
+    },1000)
   }
 
   //suite recuperation et affectation au listpresta
@@ -727,7 +727,7 @@ export class SingleProPage {
               dataType   : 'text',
               success    : function(response) {
         
-                              
+                          console.log('response ville',response);     
                  
                 let parser = new xml2js.Parser(
                        {
@@ -736,10 +736,10 @@ export class SingleProPage {
                        });
               parser.parseString(response, function (err, result){
                 
-               // console.log('response ville',result);
+              
 
                 for(let answers of result.search_answers.search_answer) {
-                                  console.log('answers ddd',answers.items[0].length);  
+                                  console.log('answers ddd',answers);  
 
                              if (answers.items[0].length==3) {
                                   console.log('answers nulll',answers);  

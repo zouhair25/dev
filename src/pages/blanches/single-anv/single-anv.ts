@@ -33,7 +33,7 @@ selector: 'page-single-anv',
         height: '30%',
       })),
       state('closed', style({
-        height: '400px',
+        height: '90%',
       })),
       
     transition('open <=> closed', [
@@ -464,8 +464,8 @@ export class SingleAnvPage {
 
       this.latitude6=data[0].d[17].latitude;
       this.module5=data[0].d[17].module;
-      this.webinfo_link5=data[17].webinfo_link;
-      this.webinfo_link_orig5=data[17].webinfo_link;
+      this.webinfo_link5=data[0].d[17].webinfo_link;
+      this.webinfo_link_orig5=data[0].d[17].webinfo_link;
 
     if(this.webinfo_link5){
         let l=this.webinfo_link5.length;
@@ -838,7 +838,6 @@ export class SingleAnvPage {
               parser.parseString(response, function (err, result){
                 
               
-
                 for(let answers of result.search_answers.search_answer) {
                                   console.log('answers ddd',answers.items[0].length);  
 

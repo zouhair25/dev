@@ -20,7 +20,7 @@ export class PharmacieGardeAproximitePage {
   currentLat;
   currentLng;
   noResult: boolean = false; 
-
+  isLocation: boolean= false;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private googleAnalyitcsService: GoogleAnalyitcsService,
@@ -30,7 +30,7 @@ export class PharmacieGardeAproximitePage {
   }
 
   ionViewDidLoad() {
-
+        
         this.quiquoi =this.navParams.get('quiquoi');
 
   	    this.currentLat =this.navParams.get('lat');
@@ -47,7 +47,16 @@ export class PharmacieGardeAproximitePage {
        })
      },100)
         }
-        this.list=this.go_build_quiquoi_approxy(this.quiquoi,this.currentLat,this.currentLng,this.start);
+        
+        if(this.currentLat && this.currentLng){
+        this.list=this.go_build_quiquoi_approxy(this.quiquoi,this.currentLat,this.currentLng,this.start);        
+
+        }else{
+        setTimeout(()=>{
+        this.list=this.go_build_quiquoi_approxy(this.quiquoi,this.currentLat,this.currentLng,this.start);        
+
+        },200);
+        }
 
     //appel a google analytics
     this.googleAnalyitcsService.analyticsGoogles('pharmacie de garde à proximité');
@@ -63,6 +72,7 @@ export class PharmacieGardeAproximitePage {
    
       // remplir la liste des resultats
    go_build_quiquoi_approxy(quiquoi,lat,lng,start){
+
        this.go_search_quiquoi_approxy(quiquoi,lat,lng,start).then((data)=>{
         this.list=data[0],this.count=data[1],
         this.noResult =data[2]
