@@ -71,7 +71,7 @@ export class SearchJaunePage implements OnInit{
             if(this.count-this.start<10 ){
               this.extract=this.count-this.start;
                console.log('this.extract',this.extract);
-}
+            }
            
 
             if(!this.posScroll){
@@ -97,7 +97,7 @@ export class SearchJaunePage implements OnInit{
             console.log('first :', this.firstScroll);
             console.log('third :', this.thirdScroll); 
             this.onSubmitFormScroll(this.quiquoi,this.ou, this.start, this.extract,this.firstScroll,this.secondScroll,this.thirdScroll,this.posScroll,this.extract_sd);
-infiniteScroll.complete();  
+            infiniteScroll.complete();  
                        }
         
 

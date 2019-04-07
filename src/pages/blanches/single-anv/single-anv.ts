@@ -71,10 +71,8 @@ export class SingleAnvPage {
     adresse1;
     adresse2;
 
-    ville0;
-    ville1;
-    ville2;
-    ville3;
+    ville;
+
 
     telephone;
     telephone2;
@@ -194,6 +192,15 @@ export class SingleAnvPage {
               ) {
      
   }
+   
+       //
+    onSearchByActivity(quiquoi,ou){
+      this.navCtrl.push('SearchJaunePage',{quiquoi,ou})
+
+    }
+    onSearchByPrestations(quiquoi,ou){
+      this.navCtrl.push('SearchJaunePage',{quiquoi,ou})
+    }
 
    //for y aller
    navigateLocation(){
@@ -261,10 +268,15 @@ export class SingleAnvPage {
               this.adresse1=data[0].d[3].adresse;
               this.adresse2=data[0].d[4].adresse;
 
-              this.ville0=data[0].d[3].ville;
-              this.ville1=data[0].d[4].ville;
-              this.ville2=data[0].d[5].ville;
-              this.ville3=data[0].d[6].ville; 
+               if(data[0].d[3].ville){
+                  this.ville=data[0].d[3].ville;
+               }else if(data[0].d[4].ville) {
+                  this.ville=data[0].d[4].ville; 
+               }else if(data[0].d[5].ville) {
+                  this.ville=data[0].d[5].ville;
+               }else{
+                  this.ville=data[0].d[6].ville;
+               } 
 
             if(data[0].d[4].telephone1){
               this.telephone=data[0].d[4].telephone1;
@@ -339,6 +351,8 @@ export class SingleAnvPage {
    if(data[0].d.length>9) {
      this.rubrique3=data[0].d[9].rubrique;
      this.longitude0=data[0].d[9].longitude;
+     console.log('this.longitude0 ',this.longitude0);
+
      this.latitude8=data[0].d[9].latitude;
    }
    this.longitude8=data[0].d[8].longitude;
@@ -371,7 +385,7 @@ export class SingleAnvPage {
      this.web3=data[0].d[10].web;
      this.latitude0=data[0].d[10].latitude;
      this.longitude7=data[0].d[10].longitude;
-     console.log('this.latitude0 10',this.latitude0);
+     console.log('this.longitude0',this.longitude0);
 
      this.rubrique4=data[0].d[10].rubrique;
      if(data[0].d[10].module){
@@ -384,7 +398,7 @@ export class SingleAnvPage {
       this.texte2=data[0].d[11].texte;
       this.longitude1=data[0].d[11].longitude;
       this.latitude7=data[0].d[11].latitude;
-      console.log('this.longitude1',this.latitude7);
+      console.log('this.latitude7',this.latitude7);
       this.module6=data[0].d[11].module;
 
    }
@@ -484,7 +498,7 @@ export class SingleAnvPage {
     }
    }
       if(data[0].d.length>18){
-      this.module4=data[18].module;
+      this.module4=data[0].d[18].module;
 
       this.webinfo_link4=data[0].d[18].webinfo_link;
       this.webinfo_link_orig4=data[0].d[18].webinfo_link;

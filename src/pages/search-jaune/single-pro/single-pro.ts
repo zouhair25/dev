@@ -70,10 +70,8 @@ export class SingleProPage {
     adresse1;
     adresse2;
 
-    ville0;
-    ville1;
-    ville2;
-    ville3;
+    ville;
+
 
     telephone;
     telephone2;
@@ -246,14 +244,9 @@ export class SingleProPage {
         })
       }
 
-  ionViewDidLoad() {
-     //appel a google analytics
-     this.googleAnalyitcsService.analyticsGoogles('page annonceur');
+ionViewDidLoad() {
 
-    //appel a firebase analytics
-    this.googleAnalyitcsService.analyticsFirebase("page annonceur", {page: "page annonceur"});
-
-    // this.loadMap();
+     // this.loadMap();
 
 
      //recuperation des infos depuis la page search-jaune
@@ -263,348 +256,353 @@ export class SingleProPage {
      console.log('single pro',this.pro);
      console.log('single pro lng',this.currentLng);
 
-    //this.loadmap();
-    //console.log('loadmap',this.loadmap());
+     //this.loadmap();
+     //console.log('loadmap',this.loadmap());
 
 
-   this.code_firme=this.pro[0].code_firme;
-   if(this.pro[1].rs_comp){
-    this.rs_comp=this.pro[1].rs_comp;
-  }else{
-    this.rs_comp=this.pro[2].rs_comp;
-  }
-   
-   
-
-   this.logo1=this.pro[2].logo;
-   this.logo2=this.pro[3].logo;
-
-
-   this.adresse0=this.pro[2].adresse;
-   this.adresse1=this.pro[3].adresse;
-   this.adresse2=this.pro[4].adresse;
-
-   this.ville0=this.pro[3].ville;
-
-   this.ville1=this.pro[4].ville;
-   this.ville2=this.pro[5].ville;
-   this.ville3=this.pro[6].ville;
-
-   if(this.pro[4].telephone1){
-     this.telephone=this.pro[4].telephone1;
-   }else if(this.pro[5].telephone1) {
-     this.telephone=this.pro[5].telephone1;
-   }else if(this.pro[6].telephone1){
-     this.telephone=this.pro[6].telephone1;
-   }else if (this.pro[7].telephone1){
-     this.telephone=this.pro[7].telephone1;
-   }else if(this.pro[8].telephone1){
-     this.telephone=this.pro[8].telephone1;
-   }else {
-     this.telephone=this.pro[9].telephone1;
-   }
-
-
-   if(this.pro[4].telephone2){
-     this.telephone2=this.pro[4].telephone2;
-   }else if(this.pro[5].telephone2) {
-     this.telephone2=this.pro[5].telephone2;
-   }else if(this.pro[6].telephone2){
-     this.telephone2=this.pro[6].telephone2;
-   }else if (this.pro[7].telephone2){
-     this.telephone2=this.pro[7].telephone2;
-   }else if(this.pro[8].telephone2){
-     this.telephone2=this.pro[8].telephone2;
-   }else {
-     this.telephone2=this.pro[9].telephone2;
-   }
-
-   this.fax0=this.pro[5].fax;
-   this.fax1=this.pro[6].fax;
-   this.fax2=this.pro[7].fax;
-   this.fax3=this.pro[8].fax;
-
-   if(this.pro[5].email){
-      this.email=this.pro[5].email;
-   }
-   else if(this.pro[6].email){
-      this.email=this.pro[6].email;
-   }
-   else if(this.pro[7].email){
-      this.email=this.pro[7].email;
-   }else if(this.pro[8].email){
-      this.email=this.pro[8].email;
-   }else{
-      this.email=this.pro[9].email;
-   }
-   
-   
-
-   this.longitude9=this.pro[7].longitude;
-   this.latitude9=this.pro[8].latitude;
-
-   this.web=this.pro[8].web;
-   
-
-    this.rubrique0=this.pro[6].rubrique;
-   
-  
-    this.rubrique1=this.pro[7].rubrique;
-   
-    this.rubrique2=this.pro[8].rubrique;
-   
-   console.log('rubrique0',this.rubrique0);
-
-   this.rubrique3=this.pro[9].rubrique;
-   this.longitude0=this.pro[9].longitude;
-
-   this.longitude8=this.pro[8].longitude;
-   this.latitude8=this.pro[9].latitude;
-   
-
-   this.web2=this.pro[7].web;
-   if(this.pro[9].module){
-      this.module0=this.pro[9].module;
-      console.log('this.module12',this.module0);
-   }
-   
-   this.web1=this.pro[9].web;
-
-   if(this.pro[8].web){
-     this.web1=this.pro[8].web;
-   }else if(this.pro[9].web){
-     this.web1=this.pro[9].web;     
-   }
- console.log('weeee',this.web3);
-  
-   
-   if(this.pro.length>10){
-     this.texte1=this.pro[10].texte;
-     this.web3=this.pro[10].web;
-     this.latitude0=this.pro[10].latitude;
-     this.longitude7=this.pro[10].longitude;
-
-     this.rubrique4=this.pro[10].rubrique;
-     if(this.pro[10].module){
-      this.module0=this.pro[10].module;
-      console.log('this.module12',this.module0);
+     this.code_firme=this.pro[0].code_firme;
+     if(this.pro[1].rs_comp){
+      this.rs_comp=this.pro[1].rs_comp;
+     }else{
+      this.rs_comp=this.pro[2].rs_comp;
      }
-   }
-   if(this.pro.length>11) {
-      this.rubrique5=this.pro[11].rubrique;
-      this.texte2=this.pro[11].texte;
-      this.longitude1=this.pro[11].longitude;
-      this.latitude7=this.pro[11].latitude;
-      this.module6=this.pro[11].module;
-
-   }
+   
    
 
-   if(this.pro.length>12) {
-      this.longitude2=this.pro[12].longitude;
-      this.rubrique6=this.pro[12].rubrique;
-      this.latitude1=this.pro[12].latitude;
-      if(this.pro[12].module){
-        this.module0=this.pro[12].module;
-      }
+     this.logo1=this.pro[2].logo;
+     this.logo2=this.pro[3].logo;
+
+
+     this.adresse0=this.pro[2].adresse;
+     this.adresse1=this.pro[3].adresse;
+     this.adresse2=this.pro[4].adresse;
      
-   }
-   if(this.pro.length>13) {
-      this.latitude2=this.pro[13].latitude;
-      this.longitude3=this.pro[13].longitude;
-      if(this.pro[13].module){
-        this.module0=this.pro[13].module;
-      }
-      this.rubrique7=this.pro[13].rubrique;
-      
-   }
-   if(this.pro.length>14) {
-      this.video=this.pro[14].video;
-      this.module1=this.pro[14].module;
-      this.longitude4=this.pro[14].longitude;
-      this.latitude3=this.pro[14].latitude;
-      this.rubrique8=this.pro[14].rubrique;
-      console.log('rubrique 6',this.rubrique6);
-
-   }
-   if(this.pro.length>15) {
-      this.poids=this.pro[15].poids;
-      this.motcle=this.pro[15].motcle;
-      this.module2=this.pro[15].module;
-      this.latitude4=this.pro[15].latitude;
-      this.longitude5=this.pro[15].longitude;
-      this.rubrique9=this.pro[15].rubrique;
-      console.log('rubrique 7',this.rubrique7);
-      
-
-   }
-   if(this.pro.length>16) {
-      this.region=this.pro[16].region;
-      this.module3=this.pro[16].module;
-      this.longitude6=this.pro[16].longitude;  
-      this.latitude5=this.pro[16].latitude;
-      this.longitude6=this.pro[16].longitude; 
-      this.webinfo_link6=this.pro[16].webinfo_link;
-
-      this.rubrique10=this.pro[16].rubrique;
-
-      this.webinfo_link_orig6=this.pro[16].webinfo_link;
+     if(this.pro[3].ville){
+        this.ville=this.pro[3].ville;
+     }else if(this.pro[4].ville) {
+        this.ville=this.pro[4].ville; 
+     }else if(this.pro[5].ville) {
+        this.ville=this.pro[5].ville;
+     }else{
+        this.ville=this.pro[6].ville;
+     }
 
 
-    if(this.webinfo_link6){
-        let l=this.webinfo_link6.length;
-      if((this.webinfo_link6.includes('http://www.'))){
-        this.webinfo_link6 =this.webinfo_link6.substring(11,l);
-         console.log('http');
-      }
-      if((this.webinfo_link6.includes('https://www.'))){
-        this.webinfo_link6 =this.webinfo_link6.substring(12,l);
-         console.log('https');
-      }
-      if(this.webinfo_link6.includes('/index.html')){
-        this.webinfo_link6 =this.webinfo_link6.substring(0,l-22);
-        console.log('/index.html');
-      }
-    }
-      console.log('module 2:',this.module3);
-   }
+     if(this.pro[4].telephone1){
+       this.telephone=this.pro[4].telephone1;
+     }else if(this.pro[5].telephone1) {
+       this.telephone=this.pro[5].telephone1;
+     }else if(this.pro[6].telephone1){
+       this.telephone=this.pro[6].telephone1;
+     }else if (this.pro[7].telephone1){
+       this.telephone=this.pro[7].telephone1;
+     }else if(this.pro[8].telephone1){
+       this.telephone=this.pro[8].telephone1;
+     }else {
+       this.telephone=this.pro[9].telephone1;
+     }
 
-   if(this.pro.length>17){
-      this.longitude10=this.pro[17].longitude;  
 
-      this.latitude6=this.pro[17].latitude;
-      this.module5=this.pro[17].module;
-      this.webinfo_link5=this.pro[17].webinfo_link;
-      this.webinfo_link_orig5=this.pro[17].webinfo_link;
+     if(this.pro[4].telephone2){
+       this.telephone2=this.pro[4].telephone2;
+     }else if(this.pro[5].telephone2) {
+       this.telephone2=this.pro[5].telephone2;
+     }else if(this.pro[6].telephone2){
+       this.telephone2=this.pro[6].telephone2;
+     }else if (this.pro[7].telephone2){
+       this.telephone2=this.pro[7].telephone2;
+     }else if(this.pro[8].telephone2){
+       this.telephone2=this.pro[8].telephone2;
+     }else {
+       this.telephone2=this.pro[9].telephone2;
+     }
 
-    if(this.webinfo_link5){
-        let l=this.webinfo_link5.length;
-      if((this.webinfo_link5.includes('http://www.'))){
-        this.webinfo_link5 =this.webinfo_link5.substring(11,l);
-         console.log('http');
-      }
-      if((this.webinfo_link5.includes('https://www.'))){
-        this.webinfo_link5 =this.webinfo_link5.substring(12,l);
-         console.log('https');
-      }
-      if(this.webinfo_link5.includes('/index.html')){
-        this.webinfo_link5 =this.webinfo_link5.substring(0,l-22);
-        console.log('/index.html');
-      }
-    }
-   }
-   if(this.pro.length>18){
-      this.module4=this.pro[18].module;
+     this.fax0=this.pro[5].fax;
+     this.fax1=this.pro[6].fax;
+     this.fax2=this.pro[7].fax;
+     this.fax3=this.pro[8].fax;
 
-      this.webinfo_link4=this.pro[18].webinfo_link;
-      this.webinfo_link_orig4=this.pro[18].webinfo_link;
-         console.log('webinfo_link4',this.webinfo_link4);
-      this.latitude10=this.pro[18].latitude;
+     if(this.pro[5].email){
+        this.email=this.pro[5].email;
+     }
+     else if(this.pro[6].email){
+        this.email=this.pro[6].email;
+     }
+     else if(this.pro[7].email){
+        this.email=this.pro[7].email;
+     }else if(this.pro[8].email){
+        this.email=this.pro[8].email;
+     }else{
+        this.email=this.pro[9].email;
+     }
+   
+   
+
+     this.longitude9=this.pro[7].longitude;
+     this.latitude9=this.pro[8].latitude;
+
+     this.web=this.pro[8].web;
      
-    if(this.webinfo_link4){
-        let l=this.webinfo_link4.length;
-      if((this.webinfo_link4.includes('http://www.'))){
-        this.webinfo_link4 =this.webinfo_link4.substring(11,l);
-         console.log('http');
-      }
-      if((this.webinfo_link4.includes('https://www.'))){
-        this.webinfo_link4 =this.webinfo_link4.substring(12,l);
-         console.log('https');
-      }
-      if(this.webinfo_link4.includes('/index.html')){
-        this.webinfo_link4 =this.webinfo_link4.substring(0,l-22);
-        console.log('/index.html');
-      }
-    }
-   }
-   if(this.pro.length>19) {
-      this.webinfo_link1=this.pro[19].webinfo_link;
-      this.webinfo_link_orig1=this.pro[19].webinfo_link;
-      this.module7=this.pro[19].module;
 
+      this.rubrique0=this.pro[6].rubrique;
+     
+    
+      this.rubrique1=this.pro[7].rubrique;
+     
+      this.rubrique2=this.pro[8].rubrique;
+     
+     console.log('rubrique0',this.rubrique0);
 
-    if(this.webinfo_link1){
-            let l=this.webinfo_link1.length;
-      if((this.webinfo_link1.includes('http://www.'))){
-        this.webinfo_link1 =this.webinfo_link1.substring(11,l);
-         console.log('http');
-      }
-      if((this.webinfo_link1.includes('https://www.'))){
-        this.webinfo_link1 =this.webinfo_link1.substring(12,l);
-         console.log('https');
-      }
-      if(this.webinfo_link1.includes('/index.html')){      
-        this.webinfo_link1 =this.webinfo_link1.substring(0,l-22);
-        console.log('/index.html');
+     this.rubrique3=this.pro[9].rubrique;
+     this.longitude0=this.pro[9].longitude;
 
-      }
-    }
-   }   
-   if(this.pro.length>20) {
-      this.webinfo_link2=this.pro[20].webinfo_link;
-      this.webinfo_link_orig2=this.pro[20].webinfo_link;
+     this.longitude8=this.pro[8].longitude;
+     this.latitude8=this.pro[9].latitude;
+   
 
+     this.web2=this.pro[7].web;
+     if(this.pro[9].module){
+        this.module0=this.pro[9].module;
+        console.log('this.module12',this.module0);
+     }
+     
+     this.web1=this.pro[9].web;
 
-    if(this.webinfo_link2){
-            let l=this.webinfo_link2.length;
-      if((this.webinfo_link2.includes('http://www.'))){
-        this.webinfo_link2 =this.webinfo_link2.substring(11,l);
-         console.log('http');
-      }
-      if((this.webinfo_link2.includes('https://www.'))){
-        this.webinfo_link2 =this.webinfo_link2.substring(12,l);
-         console.log('https');
-      }
-      if(this.webinfo_link2.includes('/index.html')){
+     if(this.pro[8].web){
+       this.web1=this.pro[8].web;
+     }else if(this.pro[9].web){
+       this.web1=this.pro[9].web;     
+     }
+     console.log('weeee',this.web3);
+    
+     
+     if(this.pro.length>10){
+       this.texte1=this.pro[10].texte;
+       this.web3=this.pro[10].web;
+       this.latitude0=this.pro[10].latitude;
+       this.longitude7=this.pro[10].longitude;
+
+       this.rubrique4=this.pro[10].rubrique;
+       if(this.pro[10].module){
+        this.module0=this.pro[10].module;
+        console.log('this.module12',this.module0);
+       }
+     }
+     if(this.pro.length>11) {
+        this.rubrique5=this.pro[11].rubrique;
+        this.texte2=this.pro[11].texte;
+        this.longitude1=this.pro[11].longitude;
+        this.latitude7=this.pro[11].latitude;
+        this.module6=this.pro[11].module;
+
+     }
+     
+
+     if(this.pro.length>12) {
+        this.longitude2=this.pro[12].longitude;
+        this.rubrique6=this.pro[12].rubrique;
+        this.latitude1=this.pro[12].latitude;
+        if(this.pro[12].module){
+          this.module0=this.pro[12].module;
+        }
+       
+     }
+     if(this.pro.length>13) {
+        this.latitude2=this.pro[13].latitude;
+        this.longitude3=this.pro[13].longitude;
+        if(this.pro[13].module){
+          this.module0=this.pro[13].module;
+        }
+        this.rubrique7=this.pro[13].rubrique;
         
-        this.webinfo_link2 =this.webinfo_link2.substring(0,l-22);
-        console.log('/index.html');
+     }
+     if(this.pro.length>14) {
+        this.video=this.pro[14].video;
+        this.module1=this.pro[14].module;
+        this.longitude4=this.pro[14].longitude;
+        this.latitude3=this.pro[14].latitude;
+        this.rubrique8=this.pro[14].rubrique;
+        console.log('rubrique 6',this.rubrique6);
 
-      }
-    }
-   }  
-   if(this.pro.length>21) {
-      this.webinfo_link3=this.pro[21].webinfo_link;
-      this.webinfo_link_orig3=this.pro[21].webinfo_link;
+     }
+     if(this.pro.length>15) {
+        this.poids=this.pro[15].poids;
+        this.motcle=this.pro[15].motcle;
+        this.module2=this.pro[15].module;
+        this.latitude4=this.pro[15].latitude;
+        this.longitude5=this.pro[15].longitude;
+        this.rubrique9=this.pro[15].rubrique;
+        console.log('rubrique 7',this.rubrique7);
+        
+
+     }
+     if(this.pro.length>16) {
+        this.region=this.pro[16].region;
+        this.module3=this.pro[16].module;
+        this.longitude6=this.pro[16].longitude;  
+        this.latitude5=this.pro[16].latitude;
+        this.longitude6=this.pro[16].longitude; 
+        this.webinfo_link6=this.pro[16].webinfo_link;
+
+        this.rubrique10=this.pro[16].rubrique;
+
+        this.webinfo_link_orig6=this.pro[16].webinfo_link;
 
 
-    if(this.webinfo_link3){
-        let l=this.webinfo_link3.length;
-      if((this.webinfo_link3.includes('http://www.'))){
-        this.webinfo_link3 =this.webinfo_link3.substring(11,l);
-         console.log('http');
+      if(this.webinfo_link6){
+          let l=this.webinfo_link6.length;
+        if((this.webinfo_link6.includes('http://www.'))){
+          this.webinfo_link6 =this.webinfo_link6.substring(11,l);
+           console.log('http');
+        }
+        if((this.webinfo_link6.includes('https://www.'))){
+          this.webinfo_link6 =this.webinfo_link6.substring(12,l);
+           console.log('https');
+        }
+        if(this.webinfo_link6.includes('/index.html')){
+          this.webinfo_link6 =this.webinfo_link6.substring(0,l-22);
+          console.log('/index.html');
+        }
       }
-      if((this.webinfo_link3.includes('https://www.'))){
-        this.webinfo_link3 =this.webinfo_link3.substring(12,l);
-         console.log('https');
-      }
-      if(this.webinfo_link3.includes('/index.html')){
-        this.webinfo_link3 =this.webinfo_link3.substring(0,l-22);
-        console.log('/index.html');
-      }
-    }
-   }
-   if(this.pro.length>25){
-      this.webinfo_link7=this.pro[25].webinfo_link;
-      this.webinfo_link_orig7=this.pro[25].webinfo_link;
+        console.log('module 2:',this.module3);
+     }
 
-    if(this.webinfo_link7){
-        let l=this.webinfo_link7.length;
-      if((this.webinfo_link7.includes('http://www.'))){
-        this.webinfo_link7 =this.webinfo_link7.substring(11,l);
-         console.log('http');
+     if(this.pro.length>17){
+        this.longitude10=this.pro[17].longitude;  
+
+        this.latitude6=this.pro[17].latitude;
+        this.module5=this.pro[17].module;
+        this.webinfo_link5=this.pro[17].webinfo_link;
+        this.webinfo_link_orig5=this.pro[17].webinfo_link;
+
+      if(this.webinfo_link5){
+          let l=this.webinfo_link5.length;
+        if((this.webinfo_link5.includes('http://www.'))){
+          this.webinfo_link5 =this.webinfo_link5.substring(11,l);
+           console.log('http');
+        }
+        if((this.webinfo_link5.includes('https://www.'))){
+          this.webinfo_link5 =this.webinfo_link5.substring(12,l);
+           console.log('https');
+        }
+        if(this.webinfo_link5.includes('/index.html')){
+          this.webinfo_link5 =this.webinfo_link5.substring(0,l-22);
+          console.log('/index.html');
+        }
       }
-      if((this.webinfo_link7.includes('https://www.'))){
-        this.webinfo_link7 =this.webinfo_link7.substring(12,l);
-         console.log('https');
+     }
+     if(this.pro.length>18){
+        this.module4=this.pro[18].module;
+
+        this.webinfo_link4=this.pro[18].webinfo_link;
+        this.webinfo_link_orig4=this.pro[18].webinfo_link;
+           console.log('webinfo_link4',this.webinfo_link4);
+        this.latitude10=this.pro[18].latitude;
+       
+      if(this.webinfo_link4){
+          let l=this.webinfo_link4.length;
+        if((this.webinfo_link4.includes('http://www.'))){
+          this.webinfo_link4 =this.webinfo_link4.substring(11,l);
+           console.log('http');
+        }
+        if((this.webinfo_link4.includes('https://www.'))){
+          this.webinfo_link4 =this.webinfo_link4.substring(12,l);
+           console.log('https');
+        }
+        if(this.webinfo_link4.includes('/index.html')){
+          this.webinfo_link4 =this.webinfo_link4.substring(0,l-22);
+          console.log('/index.html');
+        }
       }
-      if(this.webinfo_link7.includes('/index.html')){
-        this.webinfo_link7 =this.webinfo_link7.substring(0,l-22);
-        console.log('/index.html');
+     }
+     if(this.pro.length>19) {
+        this.webinfo_link1=this.pro[19].webinfo_link;
+        this.webinfo_link_orig1=this.pro[19].webinfo_link;
+        this.module7=this.pro[19].module;
+
+
+      if(this.webinfo_link1){
+              let l=this.webinfo_link1.length;
+        if((this.webinfo_link1.includes('http://www.'))){
+          this.webinfo_link1 =this.webinfo_link1.substring(11,l);
+           console.log('http');
+        }
+        if((this.webinfo_link1.includes('https://www.'))){
+          this.webinfo_link1 =this.webinfo_link1.substring(12,l);
+           console.log('https');
+        }
+        if(this.webinfo_link1.includes('/index.html')){      
+          this.webinfo_link1 =this.webinfo_link1.substring(0,l-22);
+          console.log('/index.html');
+
+        }
       }
-    }
-      console.log('webinfo_link7 :',this.webinfo_link7);
-   }
+     }   
+     if(this.pro.length>20) {
+        this.webinfo_link2=this.pro[20].webinfo_link;
+        this.webinfo_link_orig2=this.pro[20].webinfo_link;
+
+
+      if(this.webinfo_link2){
+              let l=this.webinfo_link2.length;
+        if((this.webinfo_link2.includes('http://www.'))){
+          this.webinfo_link2 =this.webinfo_link2.substring(11,l);
+           console.log('http');
+        }
+        if((this.webinfo_link2.includes('https://www.'))){
+          this.webinfo_link2 =this.webinfo_link2.substring(12,l);
+           console.log('https');
+        }
+        if(this.webinfo_link2.includes('/index.html')){
+          
+          this.webinfo_link2 =this.webinfo_link2.substring(0,l-22);
+          console.log('/index.html');
+
+        }
+      }
+     }  
+     if(this.pro.length>21) {
+        this.webinfo_link3=this.pro[21].webinfo_link;
+        this.webinfo_link_orig3=this.pro[21].webinfo_link;
+
+
+      if(this.webinfo_link3){
+          let l=this.webinfo_link3.length;
+        if((this.webinfo_link3.includes('http://www.'))){
+          this.webinfo_link3 =this.webinfo_link3.substring(11,l);
+           console.log('http');
+        }
+        if((this.webinfo_link3.includes('https://www.'))){
+          this.webinfo_link3 =this.webinfo_link3.substring(12,l);
+           console.log('https');
+        }
+        if(this.webinfo_link3.includes('/index.html')){
+          this.webinfo_link3 =this.webinfo_link3.substring(0,l-22);
+          console.log('/index.html');
+        }
+      }
+     }
+     if(this.pro.length>25){
+        this.webinfo_link7=this.pro[25].webinfo_link;
+        this.webinfo_link_orig7=this.pro[25].webinfo_link;
+
+      if(this.webinfo_link7){
+          let l=this.webinfo_link7.length;
+        if((this.webinfo_link7.includes('http://www.'))){
+          this.webinfo_link7 =this.webinfo_link7.substring(11,l);
+           console.log('http');
+        }
+        if((this.webinfo_link7.includes('https://www.'))){
+          this.webinfo_link7 =this.webinfo_link7.substring(12,l);
+           console.log('https');
+        }
+        if(this.webinfo_link7.includes('/index.html')){
+          this.webinfo_link7 =this.webinfo_link7.substring(0,l-22);
+          console.log('/index.html');
+        }
+      }
+        console.log('webinfo_link7 :',this.webinfo_link7);
+     }
    
    
 
@@ -686,8 +684,24 @@ export class SingleProPage {
       // recuperation des prestation et passer le code firme
       setTimeout(()=>{
       this.listPrestations=this.prestation_dispaly(this.code_firme);
-    },1000)
+      },1000)
+
+           //appel a google analytics
+       this.googleAnalyitcsService.analyticsGoogles('page annonceur');
+
+      //appel a firebase analytics
+      this.googleAnalyitcsService.analyticsFirebase("page annonceur", {page: "page annonceur"});
+
   }
+
+    //
+    onSearchByActivity(quiquoi,ou){
+      this.navCtrl.push('SearchJaunePage',{quiquoi,ou})
+
+    }
+    onSearchByPrestations(quiquoi,ou){
+      this.navCtrl.push('SearchJaunePage',{quiquoi,ou})
+    }
 
   //suite recuperation et affectation au listpresta
   prestation_dispaly(code_firme){

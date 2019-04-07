@@ -2,7 +2,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title text-wrap>{{rs_comp}}<br> {{ville0}}{{ville1}} {{ville2}} {{ville3}}</ion-title>
+    <ion-title text-wrap>{{rs_comp}}<br> {{ville}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -84,24 +84,74 @@
         </ion-item>
         <ion-item>
           <span class="rubrique" text-wrap>
-            <ion-icon *ngIf="rubrique0" ios="ios-arrow-dropright" md="md-arrow-dropright" class="icon-rubrique"></ion-icon><span *ngIf="rubrique0">{{rubrique0}}<br></span>
-            <ion-icon *ngIf="rubrique1" ios="ios-arrow-dropright" md="md-arrow-dropright" class="icon-rubrique"></ion-icon><span *ngIf="rubrique1">{{rubrique1}}<br></span>
-            <ion-icon *ngIf="rubrique2" ios="ios-arrow-dropright" md="md-arrow-dropright" class="icon-rubrique"></ion-icon><span *ngIf="rubrique2">{{rubrique2}}<br></span>
-            <ion-icon *ngIf="rubrique3" ios="ios-arrow-dropright" md="md-arrow-dropright" class="icon-rubrique"></ion-icon><span *ngIf="rubrique3">{{rubrique3}}<br></span>
-            <ion-icon *ngIf="rubrique4" ios="ios-arrow-dropright" md="md-arrow-dropright" class="icon-rubrique"></ion-icon><span *ngIf="rubrique4">{{rubrique4}}<br></span>
-            <ion-icon *ngIf="rubrique5" ios="ios-arrow-dropright" md="md-arrow-dropright" class="icon-rubrique"></ion-icon><span *ngIf="rubrique5">{{rubrique5}}<br></span>
+            <ion-icon *ngIf="rubrique0" ios="ios-arrow-dropright" md="md-arrow-dropright" class="icon-rubrique">
+            </ion-icon>
+            <span *ngIf="rubrique0" (click)="onSearchByActivity(rubrique0,ville)">{{rubrique0}}
+              <br>
+            </span>
 
-            <ion-icon *ngIf="rubrique6" ios="ios-arrow-dropright" md="md-arrow-dropright" class="icon-rubrique"></ion-icon><span *ngIf="rubrique6">{{rubrique6}}<br></span>
+            <ion-icon *ngIf="rubrique1" ios="ios-arrow-dropright" md="md-arrow-dropright" class="icon-rubrique">
+            </ion-icon>
+            <span *ngIf="rubrique1" (click)="onSearchByActivity(rubrique1,ville)">{{rubrique1}}
+              <br>
+            </span>
 
-            <ion-icon *ngIf="rubrique7" ios="ios-arrow-dropright" md="md-arrow-dropright" class="icon-rubrique"></ion-icon><span *ngIf="rubrique7">{{rubrique7}}<br></span>
+            <ion-icon *ngIf="rubrique2" ios="ios-arrow-dropright" md="md-arrow-dropright" class="icon-rubrique">              
+            </ion-icon>
+            <span *ngIf="rubrique2" (click)="onSearchByActivity(rubrique2,ville)">{{rubrique2}}
+              <br>
+            </span>
 
-            <ion-icon *ngIf="rubrique8" ios="ios-arrow-dropright" md="md-arrow-dropright" class="icon-rubrique"></ion-icon><span *ngIf="rubrique8">{{rubrique8}}<br></span>            
+            <ion-icon *ngIf="rubrique3" ios="ios-arrow-dropright" md="md-arrow-dropright" class="icon-rubrique">              
+            </ion-icon>
+            <span *ngIf="rubrique3" (click)="onSearchByActivity(rubrique3,ville)">{{rubrique3}}
+              <br>
+            </span>
+
+            <ion-icon *ngIf="rubrique4" ios="ios-arrow-dropright" md="md-arrow-dropright" class="icon-rubrique">              
+            </ion-icon>
+            <span *ngIf="rubrique4" (click)="onSearchByActivity(rubrique4,ville)">{{rubrique4}}
+              <br>
+            </span>
+
+            <ion-icon *ngIf="rubrique5" ios="ios-arrow-dropright" md="md-arrow-dropright" class="icon-rubrique">            
+            </ion-icon>
+            <span *ngIf="rubrique5" (click)="onSearchByActivity(rubrique5,ville)">{{rubrique5}}
+              <br>
+            </span>
+
+            <ion-icon *ngIf="rubrique6" ios="ios-arrow-dropright" md="md-arrow-dropright" class="icon-rubrique">              
+            </ion-icon>
+            <span *ngIf="rubrique6" (click)="onSearchByActivity(rubrique6,ville)">{{rubrique6}}
+              <br>
+            </span>
+
+            <ion-icon *ngIf="rubrique7" ios="ios-arrow-dropright" md="md-arrow-dropright" class="icon-rubrique">              
+            </ion-icon>
+            <span *ngIf="rubrique7" (click)="onSearchByActivity(rubrique7,ville)">{{rubrique7}}
+              <br>
+            </span>
+
+            <ion-icon *ngIf="rubrique8" ios="ios-arrow-dropright" md="md-arrow-dropright" class="icon-rubrique">              
+            </ion-icon>
+            <span *ngIf="rubrique8" (click)="onSearchByActivity(rubrique8,ville)">{{rubrique8}}
+              <br>
+            </span>            
           
 
-            <ion-icon *ngIf="rubrique9" ios="ios-arrow-dropright" md="md-arrow-dropright" class="icon-rubrique"></ion-icon><span *ngIf="rubrique9">{{rubrique9}}<br></span>            
+            <ion-icon *ngIf="rubrique9" ios="ios-arrow-dropright" md="md-arrow-dropright" class="icon-rubrique">              
+            </ion-icon>
+            <span *ngIf="rubrique9" (click)="onSearchByActivity(rubrique9,ville)">{{rubrique9}}
+              <br>
+            </span>            
           
+            <ion-icon *ngIf="rubrique10" ios="ios-arrow-dropright" md="md-arrow-dropright" 
+            class="icon-rubrique">              
+            </ion-icon>
+            <span *ngIf="rubrique10" (click)="onSearchByActivity(rubrique10,ville)">{{rubrique10}}
+              <br>
+            </span>   
 
-            <ion-icon *ngIf="rubrique10" ios="ios-arrow-dropright" md="md-arrow-dropright" class="icon-rubrique"></ion-icon><span *ngIf="rubrique10">{{rubrique10}}<br></span>            
           </span>
         </ion-item>
 
@@ -115,7 +165,7 @@
           </ion-item>
           <ion-item class="Prestations-liste" text-wrap >
             <span *ngFor="let p of listPrestations">
-              <li><ion-icon name="checkmark" class="check-mark" style="color: #617178;"></ion-icon>{{p.title}}</li>
+              <li (click)="onSearchByPrestations(p.title,ville)"><ion-icon name="checkmark" class="check-mark" style="color: #617178;"></ion-icon>{{p.title}}</li>
             </span>
           </ion-item>
         </ion-col>

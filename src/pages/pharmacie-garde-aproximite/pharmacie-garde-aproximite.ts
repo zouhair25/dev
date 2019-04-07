@@ -20,7 +20,6 @@ export class PharmacieGardeAproximitePage {
   currentLat;
   currentLng;
   noResult: boolean = false; 
-  isLocation: boolean= false;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private googleAnalyitcsService: GoogleAnalyitcsService,
