@@ -179,6 +179,21 @@ export class SingleProPage {
     destinationLng;
     telAppeler;
     
+    sbs_prestation = [
+                      { title: 'Hygiene'},
+                      { title: 'desinsectisation'},
+                      { title: 'agroalimentaire'},
+                      { title: 'assainissement'},
+
+                      { title: 'dereptilisation'},
+                      { title: 'desinfectants'},
+                      { title: 'deratisation'},
+
+                      { title: 'desinfection'},
+                      { title: 'hygiene des locaux'},
+                      { title: 'produits nettoyage'},
+
+                     ]
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private geolocation: Geolocation, private googleMaps: GoogleMaps,
               private platform: Platform,
@@ -683,7 +698,15 @@ ionViewDidLoad() {
       
       // recuperation des prestation et passer le code firme
       setTimeout(()=>{
-      this.listPrestations=this.prestation_dispaly(this.code_firme);
+        if(this.code_firme==3211272){
+          this.listPrestations=this.sbs_prestation;
+          console.log('sbs_prestation',this.listPrestations);
+        }else{
+          this.listPrestations=this.prestation_dispaly(this.code_firme);
+          console.log('normal',this.listPrestations);
+
+
+        }
       },1000)
 
            //appel a google analytics
@@ -740,8 +763,7 @@ ionViewDidLoad() {
               data       : {telecontact : data_send},
               dataType   : 'text',
               success    : function(response) {
-        
-                          console.log('response ville',response);     
+           
                  
                 let parser = new xml2js.Parser(
                        {
@@ -756,14 +778,11 @@ ionViewDidLoad() {
                                   console.log('answers ddd',answers);  
 
                              if (answers.items[0].length==3) {
-                                  console.log('answers nulll',answers);  
                                      //yyy.push({'title': 'Aucun resultat'}); 
                                }else{
- console.log('else',answers.items);
                  
                      for(let item of answers.items){
                         if(item !=null)  {
-                           console.log('itemitemitemitemitemitem ',item);
                        for(let i of item.item){
                          //console.log('item d',i);
                          list.push({'title': i.name[0]});
@@ -772,7 +791,6 @@ ionViewDidLoad() {
                        }
                      }else{
                      list.push({'title': 'Aucun resultat3'}); 
-                           console.log('itemitemitemitemitemitem 2',item);
 
                      }
                      }

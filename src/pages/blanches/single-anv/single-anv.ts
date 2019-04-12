@@ -618,12 +618,7 @@ export class SingleAnvPage {
 
 
   ionViewDidLoad() {
-    //appel a google analytics
-    this.googleAnalyitcsService.analyticsGoogles('Annuaire inversé : page annonceur ');
-
-    //appel a firebase analytics
-    this.googleAnalyitcsService.analyticsFirebase("page annonceur", {page: "page annonceur"});
-
+ 
     // this.loadMap();
 
 
@@ -731,6 +726,13 @@ export class SingleAnvPage {
       setTimeout(()=>{
       this.listPrestations=this.prestation_dispaly(this.code_firme);
     },500)
+
+         //appel a google analytics
+    this.googleAnalyitcsService.analyticsGoogles('Annuaire inversé : page annonceur ');
+
+    //appel a firebase analytics
+    this.googleAnalyitcsService.analyticsFirebase("page annonceur", {page: "page annonceur"});
+
   }
 
   //suite recuperation et affectation au listpresta

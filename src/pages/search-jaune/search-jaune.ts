@@ -107,11 +107,6 @@ export class SearchJaunePage implements OnInit{
   }
   ionViewDidLoad() {
    
-     //appel a google analytics
-     this.googleAnalyitcsService.analyticsGoogles('liste des professionnels');
-
-     //appel a firebase analytics
-     this.googleAnalyitcsService.analyticsFirebase("liste des professionnels", {page: "liste des professionnels"});
 
 
         this.quiquoi =this.navParams.get('quiquoi');
@@ -135,7 +130,13 @@ export class SearchJaunePage implements OnInit{
           console.log('je ss in Autour de moi:', this.ou);
           console.log('lat',this.currentLat);
           console.log('lng',this.currentLng);
-       }  
+       } 
+            //appel a google analytics
+     this.googleAnalyitcsService.analyticsGoogles('liste des professionnels');
+
+     //appel a firebase analytics
+     this.googleAnalyitcsService.analyticsFirebase("liste des professionnels", {page: "liste des professionnels"});
+ 
   }
 
 
