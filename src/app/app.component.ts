@@ -21,6 +21,8 @@ export class MyApp {
   loginPage: any = 'LoginPage';
   optionsPage: any = 'OptionsPage';
   aboutPage: any = 'AboutPage';
+  contactPage: any = 'ContactPage';
+
   
   version_actuell="7.0.0";
   version;

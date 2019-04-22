@@ -55,7 +55,7 @@ export class SingleAnvPage {
     @ViewChild('map') mapElement: ElementRef;
     private location: LatLng; 
    
-    //pro;
+    pro;
     rs_comp;
     
     rs_abr1;
@@ -628,7 +628,8 @@ export class SingleAnvPage {
 
 
      //recuperation des infos depuis la page search-jaune
-     //this.pro= this.navParams.get('pro');
+     this.pro= this.navParams.get('pro');
+     console.log('this.pro',this.pro);
      this.currentLat=this.navParams.get('lat');
      this.currentLng=this.navParams.get('lng');
      this.code_firme=this.navParams.get('code_firme');

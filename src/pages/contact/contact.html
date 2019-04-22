@@ -1,17 +1,132 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Contact
-    </ion-title>
+    <ion-buttons >
+      <button ion-button icon-only  (click)="onToggleMenu()">
+        <ion-icon name="menu">
+        </ion-icon>
+        <ion-title>Contactez-nous </ion-title>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <p class="message">Laissez-nous un message</p>
+        <p class="remarque">Une remarque, une suggestion , une réclamation…écrivez-nous</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <ion-list>
+          <ion-item>
+           <ion-label color="primary" floating>Nom <span class="asterisk">*</span></ion-label>
+           <ion-input ></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col col-6>
+        <ion-list>
+          <ion-item>
+            <ion-label color="primary" floating>Prénom <span class="asterisk">*</span></ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6>
+        <ion-list>
+          <ion-item>
+           <ion-label color="primary" floating>Ville </ion-label>
+           <ion-input ></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col col-6>
+        <ion-list>
+          <ion-item>
+            <ion-label color="primary" floating>Pays </ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-12>
+        <ion-list>
+          <ion-item>
+           <ion-label color="primary" floating>Email <span class="asterisk">*</span></ion-label>
+           <ion-input ></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-12>
+        <ion-list>
+          <ion-item>
+           <ion-label color="primary" floating>Téléphone</ion-label>
+           <ion-input ></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6>
+        <ion-list>
+          <ion-item>
+           <ion-label color="primary" floating>Société</ion-label>
+           <ion-input ></ion-input>
+          </ion-item>
+        <ion-list>
+      </ion-col>
+      <ion-col col-6>
+        <ion-list>
+          <ion-item>
+           <ion-label color="primary" floating>Fonction</ion-label>
+           <ion-input ></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-12>
+        <ion-list>
+          <ion-item>
+           <ion-label color="primary" floating>Sujet <span class="asterisk">*</span></ion-label>
+           <ion-input ></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-12>
+        <ion-list>
+          <ion-item>
+           <ion-label color="primary" floating>Message <span class="asterisk">*</span></ion-label>
+           <ion-textarea ></ion-textarea>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-list>
+          <ion-item>
+              <ion-label text-wrap class="check">J’autorise Edicom à utiliser mes données personnelles pour des fins d’affichage sur ses supports papiers et internet et que mes données soit publiées sur un annuaire susceptible d’être vendu à des tiers. Conformément à la loi 09-08, je suis informé de mes droits d’accès, de rectification et d’opposition pour des motifs légitime en contactant donnees.personnelles@edicom.ma. Ce traitement a fait l’objet d’une déclaration à la CNDP sous le N° D-M-310/2015</ion-label>
+             <ion-checkbox ></ion-checkbox>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

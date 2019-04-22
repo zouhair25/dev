@@ -16,7 +16,7 @@
     <ion-row  class="hist-row" *ngFor="let l of list;let i= index">
 
 
-      <ion-col col-10 class="information" (click)="onDisplayAnv(l.d[0].code_firme,currentLat,currentLng)">
+      <ion-col col-10 class="information" (click)="onDisplayAnv(l.d,currentLat,currentLng)">
         <div class="rs_comp" >
           <input type="text" name="" value="{{i+1}}" readonly="readonly" class="cercle-chiffres">
           &nbsp;{{l.d[2].rs_comp}} {{l.d[1].rs_comp}}</div>
@@ -28,12 +28,12 @@
 
       </ion-col>
 
-      <ion-col col-2 (click)="onDisplayAnv(l.d[0].code_firme,currentLat,currentLng)">
+      <ion-col col-2 (click)="onDisplayAnv(l.d,currentLat,currentLng)">
       </ion-col>
 
 
      <ion-col col-10 class="col-inscription">
-       <div class="rubrique" (click)="onDisplayAnv(l.d[0].code_firme,currentLat,currentLng)">
+       <div class="rubrique" (click)="onDisplayAnv(l.d,currentLat,currentLng)">
 
         <span *ngIf="l.d[6].rubrique">{{l.d[6].rubrique}}<br></span>
         <span *ngIf="l.d[7].rubrique">{{l.d[7].rubrique}}</span>

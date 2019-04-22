@@ -1,0 +1,30 @@
+page-add-avis {
+  .experience{
+
+  }
+  /*.scroll-content{
+    margin-top: 35px !important;
+  }*/
+  .experience{
+  	height: 33px;
+    background-color: #eaeff1;
+    text-align: center;
+    font-size: 18px;
+    vertical-align: middle;
+    line-height: 32px;
+  }
+  .scroll-content {
+  	padding: 0px !important;
+  }
+
+  ion-app.md [padding] {
+    padding: 0px !important;
+  }
+  [col-12] {
+    padding: 0px !important;
+  }
+  .evaluation{
+  	font-size: 16px;
+    font-weight: bold;
+  }
+}

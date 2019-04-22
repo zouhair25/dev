@@ -190,6 +190,10 @@ export class SingleProPage {
      
   }
 
+   //add avis
+   addAvis(code_firme){
+     this.navCtrl.push('AddAvisPage',{code_firme: this.code_firme});
+   }
    //for y aller
    navigateLocation(){
       if(this.currentLng && this.currentLat){
@@ -740,8 +744,7 @@ ionViewDidLoad() {
               data       : {telecontact : data_send},
               dataType   : 'text',
               success    : function(response) {
-        
-                          console.log('response ville',response);     
+             
                  
                 let parser = new xml2js.Parser(
                        {

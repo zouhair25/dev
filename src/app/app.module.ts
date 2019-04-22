@@ -8,7 +8,6 @@ import { MyApp } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { Geolocation } from '@ionic-native/geolocation';
-import { ContactPage } from '../pages/contact/contact';
 import { TabsPage } from '../pages/tabs/tabs';
 import { BlanchesPage } from '../pages/blanches/blanches';
 import { JaunesPage } from '../pages/jaunes/jaunes';
@@ -26,7 +25,6 @@ import { DiagnosticService } from '../providers/Diagnostic.service';
 @NgModule({
   declarations: [
     MyApp,
-    ContactPage,
     TabsPage,
     JaunesPage,
     BlanchesPage,
@@ -42,7 +40,6 @@ import { DiagnosticService } from '../providers/Diagnostic.service';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    ContactPage,
     TabsPage,
     JaunesPage,
     BlanchesPage,
