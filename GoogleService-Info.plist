@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>933266431054-g2gaol04t7sdtfu9264vi6atpnjgubcg.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.933266431054-g2gaol04t7sdtfu9264vi6atpnjgubcg</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>933266431054-9led53d02voeq4jel3clvpoaqhurmkea.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBFy21nLlHqM_zhv7e-bCHk7usSjytw3oY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>933266431054</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mobiblanc.iTeleContact</string>
+	<key>PROJECT_ID</key>
+	<string>application-telecontact</string>
+	<key>STORAGE_BUCKET</key>
+	<string>application-telecontact.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:933266431054:ios:364d85d036aa32b5</string>
+	<key>DATABASE_URL</key>
+	<string>https://application-telecontact.firebaseio.com</string>
+</dict>
+</plist>
