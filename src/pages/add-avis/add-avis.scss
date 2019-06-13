@@ -6,12 +6,24 @@ page-add-avis {
     margin-top: 35px !important;
   }*/
   .experience{
-  	height: 33px;
+  	/*height: 33px;
     background-color: #eaeff1;
     text-align: center;
     font-size: 18px;
     vertical-align: middle;
-    line-height: 32px;
+    line-height: 32px;*/
+    overflow: hidden;
+    //margin-top: 45px;
+   // padding: 0 0 0 4px;
+    background: #F0F0F0;
+    border-bottom: 1px solid #f6f6f6;
+    height: 35px;
+    line-height: 35px;
+    position: fixed;
+    width: 100%;
+    font-size: 16px;
+    color: #696969;
+    text-align: center;
   }
   .scroll-content {
   	padding: 0px !important;
@@ -26,5 +38,8 @@ page-add-avis {
   .evaluation{
   	font-size: 16px;
     font-weight: bold;
+    margin-top: 48px;
+    font-family:  "Open Sans" ,sans-serif !important;
   }
+  //de versio
 }

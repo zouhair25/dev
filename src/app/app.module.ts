@@ -21,13 +21,14 @@ import { FirebaseAnalytics } from '@ionic-native/firebase-analytics';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { GoogleAnalyitcsService } from '../providers/GoogleAnalyitcs.service';
 import { DiagnosticService } from '../providers/Diagnostic.service';
-
+import { StarRatingModule } from 'ionic3-star-rating';
 @NgModule({
   declarations: [
     MyApp,
     TabsPage,
     JaunesPage,
     BlanchesPage,
+    
   ],
   imports: [
     IonicStorageModule.forRoot(),
@@ -35,6 +36,7 @@ import { DiagnosticService } from '../providers/Diagnostic.service';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    StarRatingModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
