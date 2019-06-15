@@ -39,10 +39,10 @@
         <span *ngIf="l.d[7].rubrique">{{l.d[7].rubrique}}</span>
         <span *ngIf="l.d[8].rubrique">{{l.d[8].rubrique}}</span>
         <span *ngIf="l.d[9].rubrique">{{l.d[9].rubrique}}</span>
-        <div *ngIf="l.d.length>10">
-        <span *ngIf="l.d[10].rubrique">{{l.d[10].rubrique}}<br></span>
+        <div *ngIf="l.d.length>10 && l.d[0].code_firme!=3211272">
+        <span *ngIf="l.d[10].rubrique ">{{l.d[10].rubrique}}<br></span>
         </div>
-        <div *ngIf="l.d.length>11">
+        <div *ngIf="l.d.length>11 && l.d[0].code_firme!=3211272">
         <span *ngIf="l.d[11].rubrique">{{l.d[11].rubrique}}<br></span>
         </div>
         <div *ngIf="l.d.length>12">

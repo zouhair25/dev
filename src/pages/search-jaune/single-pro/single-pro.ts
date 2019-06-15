@@ -767,7 +767,7 @@ ionViewDidLoad() {
               data       : {telecontact : data_send},
               dataType   : 'text',
               success    : function(response) {
-   
+
                 let parser = new xml2js.Parser(
                        {
                           trim: true,
